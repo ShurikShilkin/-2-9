@@ -50,8 +50,40 @@ function showTab(tabName) {
         phaseElement.textContent = 'Финал - 18.10.2025';
     }
     
+    // Сбрасываем развертывание таблицы при переключении вкладок
+    resetTableExpand();
+    
     // Обновляем поиск для активной вкладки
     searchPlayers();
+}
+
+// Функция развертывания таблицы на мобильных
+function toggleTableExpand() {
+    const activeTab = document.querySelector('.tab-content.active').id;
+    const tables = document.querySelectorAll(`#${activeTab} .tournament-table`);
+    const button = document.querySelector('.expand-button');
+    
+    tables.forEach(table => {
+        table.classList.toggle('expanded');
+    });
+    
+    if (tables[0] && tables[0].classList.contains('expanded')) {
+        button.textContent = 'Свернуть таблицу';
+    } else {
+        button.textContent = 'Развернуть таблицу';
+    }
+}
+
+// Сброс развертывания таблицы
+function resetTableExpand() {
+    const tables = document.querySelectorAll('.tournament-table');
+    const button = document.querySelector('.expand-button');
+    
+    tables.forEach(table => {
+        table.classList.remove('expanded');
+    });
+    
+    button.textContent = 'Развернуть таблицу';
 }
 
 // Быстрая анимация счетчиков
@@ -158,9 +190,9 @@ function searchPlayers() {
             player.name.toLowerCase().includes(searchTerm)
         );
     } else {
-        filteredPlayers = allPlayers
-            .filter(player => player.exit === 0)
-            .filter(player => player.name.toLowerCase().includes(searchTerm));
+        filteredPlayers = allPlayers.filter(player => 
+            player.name.toLowerCase().includes(searchTerm)
+        );
     }
     
     if (filteredPlayers.length > 0) {
@@ -170,10 +202,10 @@ function searchPlayers() {
         
         tableBody.innerHTML = '';
         
-        filteredPlayers.forEach((player, index) => {
-            const row = document.createElement('tr');
-            
-            if (activeTab === 'day1') {
+        if (activeTab === 'day1') {
+            filteredPlayers.forEach((player) => {
+                const row = document.createElement('tr');
+                
                 const exitClass = player.exit !== 0 ? "exit-time" : "exit-zero";
                 const exitDisplay = player.exit !== 0 ? formatNumber(player.exit) : "-";
                 
@@ -187,16 +219,25 @@ function searchPlayers() {
                     <td class="chips-positive">${formatNumber(player.finalChips)}</td>
                     <td class="result-column">${formatNumber(player.result)}</td>
                 `;
-            } else {
+                
+                tableBody.appendChild(row);
+            });
+        } else {
+            // Для финала сортируем по убыванию итога
+            const sortedPlayers = [...filteredPlayers].sort((a, b) => b.result - a.result);
+            
+            sortedPlayers.forEach((player, index) => {
+                const row = document.createElement('tr');
+                
                 row.innerHTML = `
                     <td class="number-column">${index + 1}</td>
                     <td class="player-name">${player.name}</td>
                     <td class="result-column">${formatNumber(player.result)}</td>
                 `;
-            }
-            
-            tableBody.appendChild(row);
-        });
+                
+                tableBody.appendChild(row);
+            });
+        }
         
         document.getElementById('searchResults').style.display = 'block';
         document.getElementById('resultsCount').textContent = filteredPlayers.length;
