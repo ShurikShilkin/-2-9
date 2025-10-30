@@ -197,6 +197,20 @@ header h1 {
     font-size: 0.9em;
 }
 
+/* Кнопка развертывания для мобильных */
+.expand-button {
+    display: none;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 25px;
+    font-size: 1em;
+    cursor: pointer;
+    margin: 10px auto;
+    width: 200px;
+}
+
 /* Таблица турнира */
 .tournament-table {
     width: 100%;
@@ -284,6 +298,10 @@ header h1 {
 
 /* Адаптивность для мобильных */
 @media (max-width: 768px) {
+    .expand-button {
+        display: block;
+    }
+    
     .stats {
         grid-template-columns: 1fr;
         gap: 15px;
@@ -329,12 +347,37 @@ header h1 {
         width: 200px;
     }
     
-    /* Скрываем некоторые колонки на мобильных */
-    .tournament-table th:nth-child(4),
-    .tournament-table th:nth-child(5),
-    .tournament-table td:nth-child(4),
-    .tournament-table td:nth-child(5) {
+    /* День 1: по умолчанию №, Имя, Итог */
+    #day1 .tournament-table th:nth-child(4),
+    #day1 .tournament-table th:nth-child(5),
+    #day1 .tournament-table th:nth-child(6),
+    #day1 .tournament-table th:nth-child(7),
+    #day1 .tournament-table td:nth-child(4),
+    #day1 .tournament-table td:nth-child(5),
+    #day1 .tournament-table td:nth-child(6),
+    #day1 .tournament-table td:nth-child(7) {
         display: none;
+    }
+    
+    /* Финал: по умолчанию №, Имя, Итог (уже так и есть) */
+    #final .tournament-table th:nth-child(3),
+    #final .tournament-table td:nth-child(3) {
+        display: table-cell; /* Всегда показываем итог в финале */
+    }
+    
+    /* Уменьшаем отступы для длинных имен */
+    .player-name {
+        padding-left: 8px !important;
+        max-width: 120px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    
+    /* Когда таблица развернута - показываем ВСЕ колонки */
+    .tournament-table.expanded th,
+    .tournament-table.expanded td {
+        display: table-cell !important;
     }
 }
 
@@ -347,5 +390,19 @@ header h1 {
     .tournament-table th:nth-child(3),
     .tournament-table td:nth-child(3) {
         display: none;
+    }
+    
+    /* На очень маленьких экранах уменьшаем шрифт */
+    .tournament-table {
+        font-size: 0.75em;
+    }
+    
+    .player-name {
+        max-width: 100px;
+        padding-left: 5px !important;
+    }
+    
+    .number-column {
+        width: 30px;
     }
 }
