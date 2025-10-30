@@ -19,6 +19,7 @@
         <div class="tabs">
             <button class="tab-button active" onclick="showTab('day1')">День 1 - 25.09.2025</button>
             <button class="tab-button" onclick="showTab('day2')">День 2 - 2.10.2025</button>
+            <button class="tab-button" onclick="showTab('day3')">День 3 - 9.10.2025</button>
             <button class="tab-button" onclick="showTab('final')">Финал - 18.10.2025</button>
         </div>
 
@@ -32,7 +33,7 @@
                 <div class="stat-dates">
                     <div class="date-item">
                         <div class="date-label">Следующая игра</div>
-                        <div class="date-value">День 3<br>9.10.2025</div>
+                        <div class="date-value">День 4<br>16.10.2025</div>
                     </div>
                     <div class="date-item">
                         <div class="date-label">Финал</div>
@@ -89,7 +90,6 @@
                     <tr>
                         <th>№</th>
                         <th>Имя</th>
-                        <th>Изменение</th>
                         <th>Участие</th>
                         <th>Старт</th>
                         <th>Добор</th>
@@ -104,6 +104,27 @@
             </table>
         </div>
 
+        <!-- Вкладка День 3 -->
+        <div id="day3" class="tab-content">
+            <table class="tournament-table">
+                <thead>
+                    <tr>
+                        <th>№</th>
+                        <th>Имя</th>
+                        <th>Участие</th>
+                        <th>Старт</th>
+                        <th>Добор</th>
+                        <th>Выход</th>
+                        <th>Фишки финала</th>
+                        <th>Итог</th>
+                    </tr>
+                </thead>
+                <tbody id="day3Table">
+                    <!-- Игроки дня 3 появятся здесь -->
+                </tbody>
+            </table>
+        </div>
+
         <!-- Вкладка Финал -->
         <div id="final" class="tab-content">
             <table class="tournament-table">
@@ -114,6 +135,7 @@
                         <th>Изменение</th>
                         <th>День 1</th>
                         <th>День 2</th>
+                        <th>День 3</th>
                         <th>ИТОГИ</th>
                     </tr>
                 </thead>
