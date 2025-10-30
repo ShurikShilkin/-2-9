@@ -59,10 +59,10 @@ header h1 {
     background: none;
     border: none;
     color: white;
-    padding: 12px 30px;
-    margin: 0 10px;
+    padding: 12px 25px;
+    margin: 0 5px;
     border-radius: 25px;
-    font-size: 1em;
+    font-size: 0.95em;
     cursor: pointer;
     transition: all 0.3s ease;
 }
@@ -429,7 +429,7 @@ header h1 {
         width: 200px;
     }
     
-    /* День 1: по умолчанию №, Имя, Итог */
+    /* День 1, 2, 3: по умолчанию №, Имя, Итог */
     #day1 .tournament-table th:nth-child(4),
     #day1 .tournament-table th:nth-child(5),
     #day1 .tournament-table th:nth-child(6),
@@ -437,27 +437,33 @@ header h1 {
     #day1 .tournament-table td:nth-child(4),
     #day1 .tournament-table td:nth-child(5),
     #day1 .tournament-table td:nth-child(6),
-    #day1 .tournament-table td:nth-child(7) {
-        display: none;
-    }
-    
-    /* День 2: по умолчанию №, Имя, Изменение, Итог */
+    #day1 .tournament-table td:nth-child(7),
+    #day2 .tournament-table th:nth-child(4),
     #day2 .tournament-table th:nth-child(5),
     #day2 .tournament-table th:nth-child(6),
     #day2 .tournament-table th:nth-child(7),
-    #day2 .tournament-table th:nth-child(8),
+    #day2 .tournament-table td:nth-child(4),
     #day2 .tournament-table td:nth-child(5),
     #day2 .tournament-table td:nth-child(6),
     #day2 .tournament-table td:nth-child(7),
-    #day2 .tournament-table td:nth-child(8) {
+    #day3 .tournament-table th:nth-child(4),
+    #day3 .tournament-table th:nth-child(5),
+    #day3 .tournament-table th:nth-child(6),
+    #day3 .tournament-table th:nth-child(7),
+    #day3 .tournament-table td:nth-child(4),
+    #day3 .tournament-table td:nth-child(5),
+    #day3 .tournament-table td:nth-child(6),
+    #day3 .tournament-table td:nth-child(7) {
         display: none;
     }
     
     /* Финал: по умолчанию №, Имя, Изменение, ИТОГИ */
     #final .tournament-table th:nth-child(4),
     #final .tournament-table th:nth-child(5),
+    #final .tournament-table th:nth-child(6),
     #final .tournament-table td:nth-child(4),
-    #final .tournament-table td:nth-child(5) {
+    #final .tournament-table td:nth-child(5),
+    #final .tournament-table td:nth-child(6) {
         display: none;
     }
     
