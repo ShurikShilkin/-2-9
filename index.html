@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Турнирная таблица - Бананы в Монтане</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Бананы в Монтане: 2 и 9!</h1>
+            <div class="tournament-info">
+                <div class="tournament-phase" id="currentPhase">День 1 - 25.09.2025</div>
+            </div>
+        </header>
+
+        <!-- Вкладки -->
+        <div class="tabs">
+            <button class="tab-button active" onclick="showTab('day1')">День 1</button>
+            <button class="tab-button" onclick="showTab('final')">Финал 18.10.2025</button>
+        </div>
+
+        <!-- Статистика -->
+        <div class="stats">
+            <div class="stat-item">
+                <div class="stat-number" id="totalPlayers">0</div>
+                <div class="stat-label">Участников</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-dates">
+                    <div class="date-item">
+                        <div class="date-label">Следующая игра</div>
+                        <div class="date-value">День 2<br>2.10.2025</div>
+                    </div>
+                    <div class="date-item">
+                        <div class="date-label">Финал</div>
+                        <div class="date-value">18.10.2025</div>
+                    </div>
+                </div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" id="averageStack">0</div>
+                <div class="stat-label">Средний финальный стек</div>
+            </div>
+        </div>
+
+        <!-- Блок поиска -->
+        <div class="search-container">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Поиск игрока по имени...">
+                <button id="clearSearch" class="clear-search">×</button>
+            </div>
+            <div id="searchResults" class="search-results" style="display: none;">
+                Найдено игроков: <span id="resultsCount">0</span>
+            </div>
+        </div>
+
+        <!-- Вкладка День 1 -->
+        <div id="day1" class="tab-content active">
+            <table class="tournament-table">
+                <thead>
+                    <tr>
+                        <th>№</th>
+                        <th>Имя</th>
+                        <th>Участие</th>
+                        <th>Старт</th>
+                        <th>Добор</th>
+                        <th>Выход</th>
+                        <th>Фишки финала</th>
+                        <th>Итог</th>
+                    </tr>
+                </thead>
+                <tbody id="playersTable">
+                    <!-- Игроки появятся здесь -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Вкладка Финал -->
+        <div id="final" class="tab-content">
+            <table class="tournament-table">
+                <thead>
+                    <tr>
+                        <th>№</th>
+                        <th>Имя</th>
+                        <th>Итог из Дня 1</th>
+                    </tr>
+                </thead>
+                <tbody id="finalTable">
+                    <!-- Игроки для финала появятся здесь -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
