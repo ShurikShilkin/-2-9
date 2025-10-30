@@ -17,8 +17,9 @@
 
         <!-- Вкладки -->
         <div class="tabs">
-            <button class="tab-button active" onclick="showTab('day1')">День 1</button>
-            <button class="tab-button" onclick="showTab('final')">Финал 18.10.2025</button>
+            <button class="tab-button active" onclick="showTab('day1')">День 1 - 25.09.2025</button>
+            <button class="tab-button" onclick="showTab('day2')">День 2 - 2.10.2025</button>
+            <button class="tab-button" onclick="showTab('final')">Финал - 18.10.2025</button>
         </div>
 
         <!-- Статистика -->
@@ -31,7 +32,7 @@
                 <div class="stat-dates">
                     <div class="date-item">
                         <div class="date-label">Следующая игра</div>
-                        <div class="date-value">День 2<br>2.10.2025</div>
+                        <div class="date-value">День 3<br>9.10.2025</div>
                     </div>
                     <div class="date-item">
                         <div class="date-label">Финал</div>
@@ -45,11 +46,12 @@
             </div>
         </div>
 
-        <!-- Блок поиска -->
+        <!-- Блок поиска с автодополнением -->
         <div class="search-container">
             <div class="search-box">
                 <input type="text" id="searchInput" placeholder="Поиск игрока по имени...">
                 <button id="clearSearch" class="clear-search">×</button>
+                <div id="autocompleteResults" class="autocomplete-results"></div>
             </div>
             <div id="searchResults" class="search-results" style="display: none;">
                 Найдено игроков: <span id="resultsCount">0</span>
@@ -80,6 +82,28 @@
             </table>
         </div>
 
+        <!-- Вкладка День 2 -->
+        <div id="day2" class="tab-content">
+            <table class="tournament-table">
+                <thead>
+                    <tr>
+                        <th>№</th>
+                        <th>Имя</th>
+                        <th>Изменение</th>
+                        <th>Участие</th>
+                        <th>Старт</th>
+                        <th>Добор</th>
+                        <th>Выход</th>
+                        <th>Фишки финала</th>
+                        <th>Итог</th>
+                    </tr>
+                </thead>
+                <tbody id="day2Table">
+                    <!-- Игроки дня 2 появятся здесь -->
+                </tbody>
+            </table>
+        </div>
+
         <!-- Вкладка Финал -->
         <div id="final" class="tab-content">
             <table class="tournament-table">
@@ -87,7 +111,10 @@
                     <tr>
                         <th>№</th>
                         <th>Имя</th>
-                        <th>Итог из Дня 1</th>
+                        <th>Изменение</th>
+                        <th>День 1</th>
+                        <th>День 2</th>
+                        <th>ИТОГИ</th>
                     </tr>
                 </thead>
                 <tbody id="finalTable">
