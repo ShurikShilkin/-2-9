@@ -79,6 +79,29 @@ const day3Players = [
     { number: 24, name: "Иван Баж", participation: 1000, start: 3100, rebuy: 2000, exit: 0, finalChips: 1000, result: 1000 }
 ];
 
+// Данные игроков для Дня 4
+const day4Players = [
+    { number: 1, name: "Саша Коч", participation: 1000, start: 3100, rebuy: 0, exit: 38280, finalChips: 2800, result: 3800 },
+    { number: 2, name: "Асхат Суханбердин", participation: 1000, start: 3100, rebuy: 0, exit: 23720, finalChips: 2700, result: 3700 },
+    { number: 3, name: "Константин Сидорин", participation: 1000, start: 3100, rebuy: 9800, exit: 17175, finalChips: 2600, result: -1300 },
+    { number: 4, name: "Илья Сми", participation: 1000, start: 3100, rebuy: 2000, exit: 9320, finalChips: 2500, result: 2500 },
+    { number: 5, name: "Полина Матыцына", participation: 1000, start: 3100, rebuy: 0, exit: 7340, finalChips: 2400, result: 3400 },
+    { number: 6, name: "Макс Ник", participation: 1000, start: 3100, rebuy: 1500, exit: 6615, finalChips: 2300, result: 2550 },
+    { number: 7, name: "Шурик Шилкин", participation: 1000, start: 3100, rebuy: 0, exit: 3600, finalChips: 2200, result: 3200 },
+    { number: 8, name: "Богдан Анц", participation: 1000, start: 3100, rebuy: 0, exit: 2735, finalChips: 2100, result: 3100 },
+    { number: 9, name: "Славяна", participation: 1000, start: 3100, rebuy: 0, exit: 2025, finalChips: 2000, result: 3000 },
+    { number: 10, name: "Надя Жб", participation: 1000, start: 3100, rebuy: 0, exit: 1160, finalChips: 1900, result: 2900 },
+    { number: 11, name: "Михаил Козадой", participation: 1000, start: 3100, rebuy: 0, exit: 30, finalChips: 1800, result: 2800 },
+    { number: 12, name: "Виктор ШЗП", participation: 1000, start: 3100, rebuy: 0, exit: 0, finalChips: 1700, result: 2700 },
+    { number: 13, name: "Саша Бел", participation: 1000, start: 3100, rebuy: 6200, exit: 0, finalChips: 1600, result: -500 },
+    { number: 14, name: "Иван Тре", participation: 1000, start: 3100, rebuy: 4200, exit: 0, finalChips: 1500, result: 400 },
+    { number: 15, name: "Алексей Фас", participation: 1000, start: 3100, rebuy: 10600, exit: 0, finalChips: 1400, result: -2900 },
+    { number: 16, name: "Egrinderolls", participation: 1000, start: 3100, rebuy: 6000, exit: 0, finalChips: 1300, result: -700 },
+    { number: 17, name: "Макар Аве", participation: 1000, start: 3100, rebuy: 3000, exit: 0, finalChips: 1200, result: 700 },
+    { number: 18, name: "Никита Зейн", participation: 1000, start: 3100, rebuy: 2000, exit: 0, finalChips: 1100, result: 1100 },
+    { number: 19, name: "Иван John", participation: 1000, start: 3100, rebuy: 2000, exit: 0, finalChips: 1000, result: 1000 }
+];
+
 // Функция переключения вкладок
 function showTab(tabName) {
     // Скрываем все вкладки
@@ -103,6 +126,8 @@ function showTab(tabName) {
         phaseElement.textContent = 'День 2 - 2.10.2025';
     } else if (tabName === 'day3') {
         phaseElement.textContent = 'День 3 - 9.10.2025';
+    } else if (tabName === 'day4') {
+        phaseElement.textContent = 'День 4 - 16.10.2025';
     } else if (tabName === 'final') {
         phaseElement.textContent = 'Финал - 18.10.2025';
     }
@@ -184,15 +209,19 @@ function calculateAverageStack() {
         players = day3Players;
         const total = players.reduce((sum, player) => sum + Number(player.result), 0);
         return Math.round(total / players.length);
+    } else if (activeTab === 'day4') {
+        players = day4Players;
+        const total = players.reduce((sum, player) => sum + Number(player.result), 0);
+        return Math.round(total / players.length);
     } else {
         // Для финала считаем среднее от итогов (столбец ИТОГИ)
         players = getAllFinalPlayers();
-        const total = players.reduce((sum, player) => sum + (player.day1 + player.day2 + player.day3), 0);
+        const total = players.reduce((sum, player) => sum + (player.day1 + player.day2 + player.day3 + player.day4), 0);
         return Math.round(total / players.length);
     }
 }
 
-// Получение всех игроков для финала (объединение всех трех дней)
+// Получение всех игроков для финала (объединение всех четырех дней)
 function getAllFinalPlayers() {
     const allPlayersMap = new Map();
     
@@ -202,7 +231,8 @@ function getAllFinalPlayers() {
             name: player.name,
             day1: player.result,
             day2: 0,
-            day3: 0
+            day3: 0,
+            day4: 0
         });
     });
     
@@ -217,7 +247,8 @@ function getAllFinalPlayers() {
                 name: player.name,
                 day1: 0,
                 day2: player.result,
-                day3: 0
+                day3: 0,
+                day4: 0
             });
         }
     });
@@ -233,7 +264,25 @@ function getAllFinalPlayers() {
                 name: player.name,
                 day1: 0,
                 day2: 0,
-                day3: player.result
+                day3: player.result,
+                day4: 0
+            });
+        }
+    });
+    
+    // Обновляем/добавляем игроков из дня 4
+    day4Players.forEach(player => {
+        if (allPlayersMap.has(player.name)) {
+            // Игрок уже был - обновляем день 4
+            allPlayersMap.get(player.name).day4 = player.result;
+        } else {
+            // Новый игрок - добавляем
+            allPlayersMap.set(player.name, {
+                name: player.name,
+                day1: 0,
+                day2: 0,
+                day3: 0,
+                day4: player.result
             });
         }
     });
@@ -241,8 +290,8 @@ function getAllFinalPlayers() {
     return Array.from(allPlayersMap.values());
 }
 
-// Получение всех игроков для финала после Дня 2 (только День 1 + День 2)
-function getAllFinalPlayersAfterDay2() {
+// Получение всех игроков для финала после Дня 3 (только День 1+2+3)
+function getAllFinalPlayersAfterDay3() {
     const allPlayersMap = new Map();
     
     // Добавляем игроков из дня 1
@@ -251,6 +300,7 @@ function getAllFinalPlayersAfterDay2() {
             name: player.name,
             day1: player.result,
             day2: 0,
+            day3: 0,
             total: player.result
         });
     });
@@ -268,6 +318,26 @@ function getAllFinalPlayersAfterDay2() {
                 name: player.name,
                 day1: 0,
                 day2: player.result,
+                day3: 0,
+                total: player.result
+            });
+        }
+    });
+    
+    // Обновляем/добавляем игроков из дня 3
+    day3Players.forEach(player => {
+        if (allPlayersMap.has(player.name)) {
+            // Игрок уже был - обновляем день 3
+            const existing = allPlayersMap.get(player.name);
+            existing.day3 = player.result;
+            existing.total = existing.day1 + existing.day2 + existing.day3;
+        } else {
+            // Новый игрок - добавляем
+            allPlayersMap.set(player.name, {
+                name: player.name,
+                day1: 0,
+                day2: 0,
+                day3: player.result,
                 total: player.result
             });
         }
@@ -278,34 +348,34 @@ function getAllFinalPlayersAfterDay2() {
     return players;
 }
 
-// Расчет изменений позиций для Финала (относительно общего рейтинга после Дня 2)
+// Расчет изменений позиций для Финала (относительно общего рейтинга после Дня 3)
 function calculateFinalPositionChanges() {
     const changes = new Map();
     
-    // Создаем карту позиций из общего рейтинга после Дня 2
-    const day2FinalPlayers = getAllFinalPlayersAfterDay2();
-    const day2FinalPositions = new Map();
-    day2FinalPlayers.forEach((player, index) => {
-        day2FinalPositions.set(player.name, index + 1);
+    // Создаем карту позиций из общего рейтинга после Дня 3
+    const day3FinalPlayers = getAllFinalPlayersAfterDay3();
+    const day3FinalPositions = new Map();
+    day3FinalPlayers.forEach((player, index) => {
+        day3FinalPositions.set(player.name, index + 1);
     });
     
-    // Получаем финальных игроков отсортированных по итогу (все три дня)
+    // Получаем финальных игроков отсортированных по итогу (все четыре дня)
     const finalPlayers = getAllFinalPlayers();
-    finalPlayers.sort((a, b) => (b.day1 + b.day2 + b.day3) - (a.day1 + a.day2 + a.day3));
+    finalPlayers.sort((a, b) => (b.day1 + b.day2 + b.day3 + b.day4) - (a.day1 + a.day2 + a.day3 + a.day4));
     
     // Рассчитываем изменения для финальных игроков
     finalPlayers.forEach((player, newPosition) => {
-        const oldPosition = day2FinalPositions.get(player.name);
+        const oldPosition = day3FinalPositions.get(player.name);
         
         if (oldPosition) {
-            // Игрок был в рейтинге после Дня 2
+            // Игрок был в рейтинге после Дня 3
             const change = oldPosition - (newPosition + 1);
             changes.set(player.name, {
                 change: change,
                 type: change > 0 ? 'up' : change < 0 ? 'down' : 'same'
             });
         } else {
-            // Новый игрок (не было в Дне 1 или Дне 2)
+            // Новый игрок (не было в Дне 1, 2 или 3)
             changes.set(player.name, {
                 change: null,
                 type: 'new'
@@ -437,6 +507,32 @@ function fillDay3Table() {
     });
 }
 
+// Заполнение таблицы Дня 4
+function fillDay4Table() {
+    const tableBody = document.getElementById('day4Table');
+    tableBody.innerHTML = '';
+    
+    day4Players.forEach((player) => {
+        const row = document.createElement('tr');
+        
+        const exitClass = player.exit !== 0 ? "exit-time" : "exit-zero";
+        const exitDisplay = player.exit !== 0 ? formatNumber(player.exit) : "-";
+        
+        row.innerHTML = `
+            <td class="number-column">${player.number}</td>
+            <td class="player-name">${player.name}</td>
+            <td>${formatNumber(player.participation)}</td>
+            <td>${formatNumber(player.start)}</td>
+            <td>${formatNumber(player.rebuy)}</td>
+            <td class="${exitClass}">${exitDisplay}</td>
+            <td class="chips-positive">${formatNumber(player.finalChips)}</td>
+            <td class="result-column">${formatNumber(player.result)}</td>
+        `;
+        
+        tableBody.appendChild(row);
+    });
+}
+
 // Заполнение таблицы Финала
 function fillFinalTable() {
     const tableBody = document.getElementById('finalTable');
@@ -447,12 +543,12 @@ function fillFinalTable() {
     const positionChanges = calculateFinalPositionChanges();
     
     // Сортируем по убыванию общего итога
-    finalPlayers.sort((a, b) => (b.day1 + b.day2 + b.day3) - (a.day1 + a.day2 + a.day3));
+    finalPlayers.sort((a, b) => (b.day1 + b.day2 + b.day3 + b.day4) - (a.day1 + a.day2 + a.day3 + a.day4));
     
     // Присваиваем новые номера для финала
     finalPlayers.forEach((player, index) => {
         const row = document.createElement('tr');
-        const total = player.day1 + player.day2 + player.day3;
+        const total = player.day1 + player.day2 + player.day3 + player.day4;
         const changeData = positionChanges.get(player.name);
         
         row.innerHTML = `
@@ -462,6 +558,7 @@ function fillFinalTable() {
             <td class="result-column">${formatNumber(player.day1)}</td>
             <td class="result-column">${formatNumber(player.day2)}</td>
             <td class="result-column">${formatNumber(player.day3)}</td>
+            <td class="result-column">${formatNumber(player.day4)}</td>
             <td class="final-total">${formatNumber(total)}</td>
         `;
         
@@ -475,7 +572,7 @@ function setupAutocomplete() {
     const autocompleteResults = document.getElementById('autocompleteResults');
     
     // Получаем все уникальные имена игроков
-    const allPlayers = [...day1Players, ...day2Players, ...day3Players];
+    const allPlayers = [...day1Players, ...day2Players, ...day3Players, ...day4Players];
     const playerNames = [...new Set(allPlayers.map(p => p.name))];
     
     searchInput.addEventListener('input', function() {
@@ -570,6 +667,8 @@ function searchPlayers() {
             fillDay2Table();
         } else if (activeTab === 'day3') {
             fillDay3Table();
+        } else if (activeTab === 'day4') {
+            fillDay4Table();
         } else {
             fillFinalTable();
         }
@@ -590,6 +689,10 @@ function searchPlayers() {
         filteredPlayers = day3Players.filter(player => 
             player.name.toLowerCase().includes(searchTerm)
         );
+    } else if (activeTab === 'day4') {
+        filteredPlayers = day4Players.filter(player => 
+            player.name.toLowerCase().includes(searchTerm)
+        );
     } else {
         filteredPlayers = getAllFinalPlayers().filter(player => 
             player.name.toLowerCase().includes(searchTerm)
@@ -599,7 +702,8 @@ function searchPlayers() {
     if (filteredPlayers.length > 0) {
         const tableBody = document.getElementById(activeTab === 'day1' ? 'playersTable' : 
                                                activeTab === 'day2' ? 'day2Table' : 
-                                               activeTab === 'day3' ? 'day3Table' : 'finalTable');
+                                               activeTab === 'day3' ? 'day3Table' : 
+                                               activeTab === 'day4' ? 'day4Table' : 'finalTable');
         
         tableBody.innerHTML = '';
         
@@ -663,14 +767,34 @@ function searchPlayers() {
                 
                 tableBody.appendChild(row);
             });
+        } else if (activeTab === 'day4') {
+            filteredPlayers.forEach((player) => {
+                const row = document.createElement('tr');
+                
+                const exitClass = player.exit !== 0 ? "exit-time" : "exit-zero";
+                const exitDisplay = player.exit !== 0 ? formatNumber(player.exit) : "-";
+                
+                row.innerHTML = `
+                    <td class="number-column">${player.number}</td>
+                    <td class="player-name">${player.name}</td>
+                    <td>${formatNumber(player.participation)}</td>
+                    <td>${formatNumber(player.start)}</td>
+                    <td>${formatNumber(player.rebuy)}</td>
+                    <td class="${exitClass}">${exitDisplay}</td>
+                    <td class="chips-positive">${formatNumber(player.finalChips)}</td>
+                    <td class="result-column">${formatNumber(player.result)}</td>
+                `;
+                
+                tableBody.appendChild(row);
+            });
         } else {
             // Для финала
             const positionChanges = calculateFinalPositionChanges();
-            const sortedPlayers = [...filteredPlayers].sort((a, b) => (b.day1 + b.day2 + b.day3) - (a.day1 + a.day2 + a.day3));
+            const sortedPlayers = [...filteredPlayers].sort((a, b) => (b.day1 + b.day2 + b.day3 + b.day4) - (a.day1 + a.day2 + a.day3 + a.day4));
             
             sortedPlayers.forEach((player, index) => {
                 const row = document.createElement('tr');
-                const total = player.day1 + player.day2 + player.day3;
+                const total = player.day1 + player.day2 + player.day3 + player.day4;
                 const changeData = positionChanges.get(player.name);
                 
                 row.innerHTML = `
@@ -680,6 +804,7 @@ function searchPlayers() {
                     <td class="result-column">${formatNumber(player.day1)}</td>
                     <td class="result-column">${formatNumber(player.day2)}</td>
                     <td class="result-column">${formatNumber(player.day3)}</td>
+                    <td class="result-column">${formatNumber(player.day4)}</td>
                     <td class="final-total">${formatNumber(total)}</td>
                 `;
                 
@@ -695,9 +820,10 @@ function searchPlayers() {
         
         const tableBody = document.getElementById(activeTab === 'day1' ? 'playersTable' : 
                                                activeTab === 'day2' ? 'day2Table' : 
-                                               activeTab === 'day3' ? 'day3Table' : 'finalTable');
+                                               activeTab === 'day3' ? 'day3Table' : 
+                                               activeTab === 'day4' ? 'day4Table' : 'finalTable');
         
-        const colSpan = activeTab === 'final' ? '7' : '8';
+        const colSpan = activeTab === 'final' ? '8' : '8';
         tableBody.innerHTML = `
             <tr>
                 <td colspan="${colSpan}" style="text-align: center; padding: 40px; color: #666;">
@@ -725,6 +851,9 @@ function updateStats() {
     } else if (activeTab === 'day3') {
         totalPlayers = day3Players.length;
         averageStack = calculateAverageStack();
+    } else if (activeTab === 'day4') {
+        totalPlayers = day4Players.length;
+        averageStack = calculateAverageStack();
     } else {
         const finalPlayers = getAllFinalPlayers();
         totalPlayers = finalPlayers.length;
@@ -744,6 +873,7 @@ document.addEventListener('DOMContentLoaded', function() {
     fillDay1Table();
     fillDay2Table();
     fillDay3Table();
+    fillDay4Table();
     fillFinalTable();
     setupAutocomplete();
     
