@@ -326,10 +326,18 @@ header h1 {
 
 .final-total {
     font-weight: bold;
-    background: #4CAF50;
-    color: white;
     border-radius: 8px;
     padding: 5px 8px;
+}
+
+.final-total.positive {
+    background: #4CAF50;
+    color: white;
+}
+
+.final-total.negative {
+    background: #f44336;
+    color: white;
 }
 
 .exit-time {
@@ -430,39 +438,25 @@ header h1 {
         width: 200px;
     }
     
-    /* День 1, 2, 3, 4: по умолчанию №, Имя, Итог */
+    /* День 1, 2, 3: по умолчанию №, Имя, Итог */
     #day1 .tournament-table th:nth-child(4),
     #day1 .tournament-table th:nth-child(5),
     #day1 .tournament-table th:nth-child(6),
-    #day1 .tournament-table th:nth-child(7),
     #day1 .tournament-table td:nth-child(4),
     #day1 .tournament-table td:nth-child(5),
     #day1 .tournament-table td:nth-child(6),
-    #day1 .tournament-table td:nth-child(7),
     #day2 .tournament-table th:nth-child(4),
     #day2 .tournament-table th:nth-child(5),
     #day2 .tournament-table th:nth-child(6),
-    #day2 .tournament-table th:nth-child(7),
     #day2 .tournament-table td:nth-child(4),
     #day2 .tournament-table td:nth-child(5),
     #day2 .tournament-table td:nth-child(6),
-    #day2 .tournament-table td:nth-child(7),
     #day3 .tournament-table th:nth-child(4),
     #day3 .tournament-table th:nth-child(5),
     #day3 .tournament-table th:nth-child(6),
-    #day3 .tournament-table th:nth-child(7),
     #day3 .tournament-table td:nth-child(4),
     #day3 .tournament-table td:nth-child(5),
-    #day3 .tournament-table td:nth-child(6),
-    #day3 .tournament-table td:nth-child(7),
-    #day4 .tournament-table th:nth-child(4),
-    #day4 .tournament-table th:nth-child(5),
-    #day4 .tournament-table th:nth-child(6),
-    #day4 .tournament-table th:nth-child(7),
-    #day4 .tournament-table td:nth-child(4),
-    #day4 .tournament-table td:nth-child(5),
-    #day4 .tournament-table td:nth-child(6),
-    #day4 .tournament-table td:nth-child(7) {
+    #day3 .tournament-table td:nth-child(6) {
         display: none;
     }
     
@@ -470,12 +464,16 @@ header h1 {
     #final .tournament-table th:nth-child(4),
     #final .tournament-table th:nth-child(5),
     #final .tournament-table th:nth-child(6),
-    #final .tournament-table th:nth-child(7),
     #final .tournament-table td:nth-child(4),
     #final .tournament-table td:nth-child(5),
-    #final .tournament-table td:nth-child(6),
-    #final .tournament-table td:nth-child(7) {
+    #final .tournament-table td:nth-child(6) {
         display: none;
+    }
+    
+    /* Охота за головами: по умолчанию Имя, Бонус */
+    #bounties .tournament-table th,
+    #bounties .tournament-table td {
+        display: table-cell !important;
     }
     
     /* Уменьшаем отступы для длинных имен */
