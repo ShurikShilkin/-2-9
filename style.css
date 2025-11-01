@@ -596,6 +596,27 @@ header h1 {
         text-align: center;
     }
     
+    /* Исправляем сжатие имен для вкладки САТЕЛЛИТ */
+    #satellite2025 .medal-item .player-name {
+        max-width: none !important;
+        overflow: visible !important;
+        white-space: normal !important;
+        text-align: center;
+        padding-left: 0 !important;
+    }
+    
+    #satellite2025 .medal-item {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+        padding: 15px 10px;
+    }
+    
+    #satellite2025 .medals-container {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+    
     /* День 1, 2, 3: по умолчанию №, Имя, Итог */
     #day1 .tournament-table th:nth-child(4),
     #day1 .tournament-table th:nth-child(5),
@@ -689,5 +710,23 @@ header h1 {
     
     .special-tab-content h2 {
         font-size: 1.8em;
+    }
+    
+    /* Дополнительные правки для очень маленьких экранов */
+    #satellite2025 .medal-item .player-name {
+        font-size: 1em;
+        line-height: 1.3;
+    }
+    
+    #satellite2025 .medal-item .medals {
+        font-size: 1.3em;
+    }
+    
+    #satellite2025 .medals-container {
+        gap: 8px;
+    }
+    
+    #satellite2025 .medal-item {
+        padding: 12px 8px;
     }
 }
