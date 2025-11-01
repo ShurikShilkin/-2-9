@@ -153,7 +153,10 @@ function showMainInterface(tabName) {
     const tabButtons = document.querySelectorAll('#mainTabs .tab-button');
     tabButtons.forEach(button => button.classList.remove('active'));
     
-    document.querySelector(`#mainTabs .tab-button[onclick="showTab('${tabName}')"]`).classList.add('active');
+    const targetButton = document.querySelector(`#mainTabs .tab-button[onclick="showTab('${tabName}')"]`);
+    if (targetButton) {
+        targetButton.classList.add('active');
+    }
     
     // Обновляем заголовок фазы турнира
     const phaseElement = document.getElementById('currentPhase');
@@ -724,9 +727,8 @@ document.addEventListener('DOMContentLoaded', function() {
     fillBountiesTable();
     setupAutocomplete();
     
-    setTimeout(() => {
-        updateStats();
-    }, 150);
+    // Показываем вкладку ФИНАЛ при загрузке
+    showTab('final');
     
     document.getElementById('searchInput').addEventListener('input', searchPlayers);
     
