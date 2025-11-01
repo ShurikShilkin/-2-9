@@ -15,28 +15,23 @@
                 <button class="special-tab right" onclick="showTab('satellite2025')">САТЕЛЛИТ 2025</button>
             </div>
             <div class="tournament-info">
-                <div class="tournament-phase" id="currentPhase">День 1 - 23.10.2025</div>
+                <div class="tournament-phase" id="currentPhase">Финал - 8.11.2025</div>
             </div>
         </header>
 
         <!-- Основные вкладки -->
         <div class="tabs" id="mainTabs">
-            <button class="tab-button active" onclick="showTab('day1')">День 1 - 23.10.2025</button>
+            <button class="tab-button" onclick="showTab('day1')">День 1 - 23.10.2025</button>
             <button class="tab-button" onclick="showTab('day2')">День 2 - 30.10.2025</button>
             <button class="tab-button" onclick="showTab('day3')">День 3 - 6.11.2025</button>
-            <button class="tab-button" onclick="showTab('final')">Финал - 8.11.2025</button>
+            <button class="tab-button active" onclick="showTab('final')">Финал - 8.11.2025</button>
             <button class="tab-button" onclick="showTab('bounties')">Охота за головами</button>
         </div>
 
         <!-- Специальная вкладка для ФИНАЛ ФИНАЛИСТОВ и САТЕЛЛИТ -->
         <div class="tabs" id="specialTabs" style="display: none;">
             <button class="tab-button active" id="specialTabButton">ФИНАЛ ФИНАЛИСТОВ 2025</button>
-            <button class="tab-button back-button" onclick="showTab('day1')">← Назад к турниру</button>
-        </div>
-
-        <!-- Специальная вкладка для ФИНАЛ ФИНАЛИСТОВ и САТЕЛЛИТ -->
-        <div class="tabs" id="specialTabs" style="display: none;">
-            <button class="tab-button active" id="specialTabButton">ФИНАЛ ФИНАЛИСТОВ 2025</button>
+            <button class="tab-button back-button" onclick="showTab('final')">← Назад к турниру</button>
         </div>
 
         <!-- Статистика для основных вкладок -->
@@ -87,7 +82,7 @@
         <button class="expand-button" onclick="toggleTableExpand()">Развернуть таблицу</button>
 
         <!-- Вкладка День 1 -->
-        <div id="day1" class="tab-content active">
+        <div id="day1" class="tab-content">
             <table class="tournament-table">
                 <thead>
                     <tr>
@@ -147,7 +142,7 @@
         </div>
 
         <!-- Вкладка Финал -->
-        <div id="final" class="tab-content">
+        <div id="final" class="tab-content active">
             <table class="tournament-table">
                 <thead>
                     <tr>
@@ -187,17 +182,17 @@
                 <h2>ФИНАЛ ФИНАЛИСТОВ 2025</h2>
                 <div class="special-date">20.12.2025</div>
                 <div class="players-list">
-                    <div class="player-item">1. Александр Гиг</div>
-                    <div class="player-item">2. Мария Павлова</div>
-                    <div class="player-item">3. Даша Yellow</div>
-                    <div class="player-item">4. Михаил Козадой</div>
-                    <div class="player-item">5. Вадим Константинов</div>
-                    <div class="player-item">6. Руф</div>
-                    <div class="player-item">7. Влад Пив</div>
-                    <div class="player-item">8. Артур Король</div>
-                    <div class="player-item">9. Шурик Шилкин</div>
-                    <div class="player-item">10. Даня Гол</div>
-                    <div class="player-item">11. Никита Yellow</div>
+                    <div class="player-item"> Александр Гиг</div>
+                    <div class="player-item"> Мария Павлова</div>
+                    <div class="player-item"> Даша Yellow</div>
+                    <div class="player-item"> Михаил Козадой</div>
+                    <div class="player-item"> Вадим Константинов</div>
+                    <div class="player-item"> Руф</div>
+                    <div class="player-item"> Влад Пив</div>
+                    <div class="player-item"> Артур Король</div>
+                    <div class="player-item"> Шурик Шилкин</div>
+                    <div class="player-item"> Даня Гол</div>
+                    <div class="player-item"> Никита Yellow</div>
                 </div>
             </div>
         </div>
@@ -214,7 +209,7 @@
                     </div>
                     <div class="medal-item">
                         <span class="player-name">Иван Чемодан</span>
-                        <span class="medals">😊 М</span>
+                        <span class="medals">межсезонье</span>
                     </div>
                     <div class="medal-item">
                         <span class="player-name">Иван Антипов</span>
