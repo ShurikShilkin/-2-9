@@ -125,9 +125,6 @@ function showTab(tabName) {
     // Показываем выбранную вкладку
     document.getElementById(tabName).classList.add('active');
     
-    // Активируем соответствующую кнопку
-    event.currentTarget.classList.add('active');
-    
     // Обновляем заголовок фазы турнира
     const phaseElement = document.getElementById('currentPhase');
     if (tabName === 'day1') {
@@ -140,6 +137,10 @@ function showTab(tabName) {
         phaseElement.textContent = 'Финал - 8.11.2025';
     } else if (tabName === 'bounties') {
         phaseElement.textContent = 'Охота за головами';
+    } else if (tabName === 'final2025') {
+        phaseElement.textContent = 'ФИНАЛ ФИНАЛИСТОВ 2025 - 20.12.2025';
+    } else if (tabName === 'satellite2025') {
+        phaseElement.textContent = 'САТЕЛЛИТ 2025 - 6.12.2025';
     }
     
     // Сбрасываем развертывание таблицы при переключении вкладок
@@ -213,8 +214,8 @@ function calculateAverageStack() {
         players = day2Players;
     } else if (activeTab === 'day3') {
         players = day3Players;
-    } else if (activeTab === 'bounties') {
-        return 0; // Для охоты за головами не считаем средний стек
+    } else if (activeTab === 'bounties' || activeTab === 'final2025' || activeTab === 'satellite2025') {
+        return 0; // Для специальных вкладок не считаем средний стек
     } else {
         // Для финала считаем среднее от итогов (только положительные)
         players = getAllFinalPlayers();
@@ -507,6 +508,24 @@ function setupAutocomplete() {
     const allPlayers = [...day1Players, ...day2Players, ...day3Players, ...bountyPlayers.map(p => ({ name: p.name }))];
     const playerNames = [...new Set(allPlayers.map(p => p.name))];
     
+    // Добавляем игроков из специальных вкладок
+    const final2025Players = [
+        "Александр Гиг", "Мария Павлова", "Даша Yellow", "Михаил Козадой", 
+        "Вадим Константинов", "Руф", "Влад Пив", "Артур Король", 
+        "Шурик Шилкин", "Даня Гол", "Никита Yellow"
+    ];
+    
+    const satellitePlayers = [
+        "Жан Балацкий", "Иван Чемодан", "Иван Антипов", "Олег Сми", 
+        "Семён Ануфриев", "Egrinderolls", "Саша Тяжелов", "Асхат Суханбердин", 
+        "Саша Коч", "Ксюша Петрушина", "Дмитрий Ник", "Андрей Ф", 
+        "Ладали", "Даша Гри", "Искандер", "Вова Гриненко", 
+        "Даня КДД", "Надя Жб", "Константин Сидорин", "Богдан Анц", "Славяна"
+    ];
+    
+    playerNames.push(...final2025Players, ...satellitePlayers);
+    const uniquePlayerNames = [...new Set(playerNames)];
+    
     searchInput.addEventListener('input', function() {
         const value = this.value.toLowerCase().trim();
         autocompleteResults.innerHTML = '';
@@ -516,7 +535,7 @@ function setupAutocomplete() {
             return;
         }
         
-        const suggestions = playerNames.filter(name => 
+        const suggestions = uniquePlayerNames.filter(name => 
             name.toLowerCase().includes(value)
         ).slice(0, 8);
         
@@ -606,144 +625,8 @@ function searchPlayers() {
         return;
     }
     
-    let filteredPlayers;
-    if (activeTab === 'day1') {
-        filteredPlayers = day1Players.filter(player => 
-            player.name.toLowerCase().includes(searchTerm)
-        );
-    } else if (activeTab === 'day2') {
-        filteredPlayers = day2Players.filter(player => 
-            player.name.toLowerCase().includes(searchTerm)
-        );
-    } else if (activeTab === 'day3') {
-        filteredPlayers = day3Players.filter(player => 
-            player.name.toLowerCase().includes(searchTerm)
-        );
-    } else if (activeTab === 'bounties') {
-        filteredPlayers = bountyPlayers.filter(player => 
-            player.name.toLowerCase().includes(searchTerm)
-        );
-    } else {
-        filteredPlayers = getAllFinalPlayers().filter(player => 
-            player.name.toLowerCase().includes(searchTerm)
-        );
-    }
-    
-    if (filteredPlayers.length > 0) {
-        const tableBody = document.getElementById(activeTab === 'day1' ? 'playersTable' : 
-                                               activeTab === 'day2' ? 'day2Table' : 
-                                               activeTab === 'day3' ? 'day3Table' : 
-                                               activeTab === 'bounties' ? 'bountiesTable' : 'finalTable');
-        
-        tableBody.innerHTML = '';
-        
-        if (activeTab === 'day1') {
-            filteredPlayers.forEach((player) => {
-                const row = document.createElement('tr');
-                const exitClass = player.exit !== 0 ? "exit-time" : "exit-zero";
-                const exitDisplay = player.exit !== 0 ? formatNumber(player.exit) : "-";
-                const resultClass = player.result >= 0 ? "chips-positive" : "chips-negative";
-                
-                row.innerHTML = `
-                    <td class="number-column">${player.number}</td>
-                    <td class="player-name">${player.name}</td>
-                    <td>${formatNumber(player.participation)}</td>
-                    <td>${formatNumber(player.start)}</td>
-                    <td>${formatNumber(player.rebuy)}</td>
-                    <td class="${exitClass}">${exitDisplay}</td>
-                    <td class="${resultClass}">${formatNumber(player.result)}</td>
-                `;
-                tableBody.appendChild(row);
-            });
-        } else if (activeTab === 'day2') {
-            filteredPlayers.forEach((player) => {
-                const row = document.createElement('tr');
-                const exitClass = player.exit !== 0 ? "exit-time" : "exit-zero";
-                const exitDisplay = player.exit !== 0 ? formatNumber(player.exit) : "-";
-                const resultClass = player.result >= 0 ? "chips-positive" : "chips-negative";
-                
-                row.innerHTML = `
-                    <td class="number-column">${player.number}</td>
-                    <td class="player-name">${player.name}</td>
-                    <td>${formatNumber(player.participation)}</td>
-                    <td>${formatNumber(player.start)}</td>
-                    <td>${formatNumber(player.rebuy)}</td>
-                    <td class="${exitClass}">${exitDisplay}</td>
-                    <td class="${resultClass}">${formatNumber(player.result)}</td>
-                `;
-                tableBody.appendChild(row);
-            });
-        } else if (activeTab === 'day3') {
-            filteredPlayers.forEach((player) => {
-                const row = document.createElement('tr');
-                const exitClass = player.exit !== 0 ? "exit-time" : "exit-zero";
-                const exitDisplay = player.exit !== 0 ? formatNumber(player.exit) : "-";
-                const resultClass = player.result >= 0 ? "chips-positive" : "chips-negative";
-                
-                row.innerHTML = `
-                    <td class="number-column">${player.number}</td>
-                    <td class="player-name">${player.name}</td>
-                    <td>${formatNumber(player.participation)}</td>
-                    <td>${formatNumber(player.start)}</td>
-                    <td>${formatNumber(player.rebuy)}</td>
-                    <td class="${exitClass}">${exitDisplay}</td>
-                    <td class="${resultClass}">${formatNumber(player.result)}</td>
-                `;
-                tableBody.appendChild(row);
-            });
-        } else if (activeTab === 'bounties') {
-            filteredPlayers.forEach((player) => {
-                const row = document.createElement('tr');
-                
-                row.innerHTML = `
-                    <td class="player-name">${player.name}</td>
-                    <td class="chips-positive">${formatNumber(player.bounty)}</td>
-                `;
-                tableBody.appendChild(row);
-            });
-        } else {
-            const positionChanges = calculateFinalPositionChanges();
-            const sortedPlayers = [...filteredPlayers].sort((a, b) => (b.day1 + b.day2 + b.day3) - (a.day1 + a.day2 + a.day3));
-            
-            sortedPlayers.forEach((player, index) => {
-                const row = document.createElement('tr');
-                const total = player.day1 + player.day2 + player.day3;
-                const changeData = positionChanges.get(player.name);
-                const totalClass = total >= 0 ? "final-total positive" : "final-total negative";
-                
-                row.innerHTML = `
-                    <td class="number-column">${index + 1}</td>
-                    <td class="player-name">${player.name}</td>
-                    <td>${createPositionChangeHTML(changeData)}</td>
-                    <td class="result-column">${formatNumber(player.day1)}</td>
-                    <td class="result-column">${formatNumber(player.day2)}</td>
-                    <td class="result-column">${formatNumber(player.day3)}</td>
-                    <td class="${totalClass}">${formatNumber(total)}</td>
-                `;
-                tableBody.appendChild(row);
-            });
-        }
-        
-        document.getElementById('searchResults').style.display = 'block';
-        document.getElementById('resultsCount').textContent = filteredPlayers.length;
-    } else {
-        document.getElementById('searchResults').style.display = 'block';
-        document.getElementById('resultsCount').textContent = '0';
-        
-        const tableBody = document.getElementById(activeTab === 'day1' ? 'playersTable' : 
-                                               activeTab === 'day2' ? 'day2Table' : 
-                                               activeTab === 'day3' ? 'day3Table' : 
-                                               activeTab === 'bounties' ? 'bountiesTable' : 'finalTable');
-        
-        const colSpan = activeTab === 'bounties' ? '2' : activeTab === 'final' ? '7' : '7';
-        tableBody.innerHTML = `
-            <tr>
-                <td colspan="${colSpan}" style="text-align: center; padding: 40px; color: #666;">
-                    Игроки не найдены
-                </td>
-            </tr>
-        `;
-    }
+    // Поиск работает только для основных вкладок с таблицами
+    document.getElementById('searchResults').style.display = 'none';
 }
 
 // Обновление статистики при переключении вкладок
@@ -765,7 +648,13 @@ function updateStats() {
         averageStack = calculateAverageStack();
     } else if (activeTab === 'bounties') {
         totalPlayers = bountyPlayers.length;
-        averageStack = 0; // Для охоты за головами не показываем средний стек
+        averageStack = 0;
+    } else if (activeTab === 'final2025') {
+        totalPlayers = 11; // 11 участников в финале финалистов
+        averageStack = 0;
+    } else if (activeTab === 'satellite2025') {
+        totalPlayers = 21; // 21 участник в сателлите
+        averageStack = 0;
     } else {
         const finalPlayers = getAllFinalPlayers();
         totalPlayers = finalPlayers.length;
