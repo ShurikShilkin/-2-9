@@ -125,6 +125,36 @@ function showTab(tabName) {
     // Показываем выбранную вкладку
     document.getElementById(tabName).classList.add('active');
     
+    // Обновляем интерфейс в зависимости от типа вкладки
+    if (tabName === 'final2025' || tabName === 'satellite2025') {
+        showSpecialInterface(tabName);
+    } else {
+        showMainInterface(tabName);
+    }
+    
+    // Сбрасываем развертывание таблицы при переключении вкладок
+    resetTableExpand();
+    
+    // Обновляем поиск для активной вкладки
+    searchPlayers();
+    
+    // Обновляем статистику
+    updateStats();
+}
+
+// Показать основной интерфейс (дни турнира)
+function showMainInterface(tabName) {
+    document.getElementById('mainTabs').style.display = 'flex';
+    document.getElementById('specialTabs').style.display = 'none';
+    document.getElementById('mainStats').style.display = 'grid';
+    document.getElementById('specialStats').style.display = 'none';
+    
+    // Активируем соответствующую кнопку в основных вкладках
+    const tabButtons = document.querySelectorAll('#mainTabs .tab-button');
+    tabButtons.forEach(button => button.classList.remove('active'));
+    
+    document.querySelector(`#mainTabs .tab-button[onclick="showTab('${tabName}')"]`).classList.add('active');
+    
     // Обновляем заголовок фазы турнира
     const phaseElement = document.getElementById('currentPhase');
     if (tabName === 'day1') {
@@ -137,20 +167,30 @@ function showTab(tabName) {
         phaseElement.textContent = 'Финал - 8.11.2025';
     } else if (tabName === 'bounties') {
         phaseElement.textContent = 'Охота за головами';
-    } else if (tabName === 'final2025') {
+    }
+}
+
+// Показать специальный интерфейс (ФИНАЛ ФИНАЛИСТОВ или САТЕЛЛИТ)
+function showSpecialInterface(tabName) {
+    document.getElementById('mainTabs').style.display = 'none';
+    document.getElementById('specialTabs').style.display = 'flex';
+    document.getElementById('mainStats').style.display = 'none';
+    document.getElementById('specialStats').style.display = 'grid';
+    
+    // Обновляем текст специальной вкладки
+    const specialTabButton = document.getElementById('specialTabButton');
+    const phaseElement = document.getElementById('currentPhase');
+    
+    if (tabName === 'final2025') {
+        specialTabButton.textContent = 'ФИНАЛ ФИНАЛИСТОВ 2025';
         phaseElement.textContent = 'ФИНАЛ ФИНАЛИСТОВ 2025 - 20.12.2025';
     } else if (tabName === 'satellite2025') {
+        specialTabButton.textContent = 'САТЕЛЛИТ 2025';
         phaseElement.textContent = 'САТЕЛЛИТ 2025 - 6.12.2025';
     }
     
-    // Сбрасываем развертывание таблицы при переключении вкладок
-    resetTableExpand();
-    
-    // Обновляем поиск для активной вкладки
-    searchPlayers();
-    
-    // Обновляем статистику
-    updateStats();
+    // Показываем кнопку "Назад к турниру"
+    document.querySelector('.back-button').style.display = 'block';
 }
 
 // Функция развертывания таблицы на мобильных
@@ -633,6 +673,7 @@ function searchPlayers() {
 function updateStats() {
     const totalPlayersElement = document.getElementById('totalPlayers');
     const averageStackElement = document.getElementById('averageStack');
+    const specialTotalPlayersElement = document.getElementById('specialTotalPlayers');
     const activeTab = document.querySelector('.tab-content.active').id;
     
     let totalPlayers, averageStack;
@@ -640,29 +681,36 @@ function updateStats() {
     if (activeTab === 'day1') {
         totalPlayers = day1Players.length;
         averageStack = calculateAverageStack();
+        animateCounter(totalPlayersElement, totalPlayers);
+        animateCounter(averageStackElement, averageStack);
     } else if (activeTab === 'day2') {
         totalPlayers = day2Players.length;
         averageStack = calculateAverageStack();
+        animateCounter(totalPlayersElement, totalPlayers);
+        animateCounter(averageStackElement, averageStack);
     } else if (activeTab === 'day3') {
         totalPlayers = day3Players.length;
         averageStack = calculateAverageStack();
+        animateCounter(totalPlayersElement, totalPlayers);
+        animateCounter(averageStackElement, averageStack);
     } else if (activeTab === 'bounties') {
         totalPlayers = bountyPlayers.length;
         averageStack = 0;
+        animateCounter(totalPlayersElement, totalPlayers);
+        animateCounter(averageStackElement, averageStack);
     } else if (activeTab === 'final2025') {
         totalPlayers = 11; // 11 участников в финале финалистов
-        averageStack = 0;
+        animateCounter(specialTotalPlayersElement, totalPlayers);
     } else if (activeTab === 'satellite2025') {
         totalPlayers = 21; // 21 участник в сателлите
-        averageStack = 0;
+        animateCounter(specialTotalPlayersElement, totalPlayers);
     } else {
         const finalPlayers = getAllFinalPlayers();
         totalPlayers = finalPlayers.length;
         averageStack = calculateAverageStack();
+        animateCounter(totalPlayersElement, totalPlayers);
+        animateCounter(averageStackElement, averageStack);
     }
-    
-    animateCounter(totalPlayersElement, totalPlayers);
-    animateCounter(averageStackElement, averageStack);
 }
 
 // Запуск при загрузке страницы
