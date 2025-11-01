@@ -25,11 +25,20 @@ header {
     padding: 20px;
 }
 
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
 header h1 {
     font-size: 2.8em;
-    margin-bottom: 15px;
+    margin: 0;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
     color: #FFD700;
+    flex: 1;
+    text-align: center;
 }
 
 .tournament-info {
@@ -44,7 +53,35 @@ header h1 {
     text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
 }
 
-/* Вкладки */
+/* Специальные вкладки в шапке */
+.special-tab {
+    background: rgba(255,255,255,0.15);
+    color: white;
+    border: 2px solid rgba(255,255,255,0.3);
+    padding: 12px 20px;
+    border-radius: 25px;
+    font-size: 0.9em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    min-width: 200px;
+}
+
+.special-tab:hover {
+    background: rgba(255,255,255,0.25);
+    border-color: rgba(255,255,255,0.5);
+    transform: translateY(-2px);
+}
+
+.special-tab.left {
+    margin-right: 20px;
+}
+
+.special-tab.right {
+    margin-left: 20px;
+}
+
+/* Основные вкладки */
 .tabs {
     display: flex;
     justify-content: center;
@@ -387,8 +424,114 @@ header h1 {
     font-size: 1.1em;
 }
 
+/* Стили для специальных вкладок */
+.special-tab-content {
+    text-align: center;
+    background: rgba(255,255,255,0.1);
+    padding: 40px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    margin-top: 20px;
+    border: 2px solid rgba(255,255,255,0.2);
+}
+
+.special-tab-content h2 {
+    font-size: 2.5em;
+    margin-bottom: 15px;
+    color: #FFD700;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.special-date {
+    font-size: 1.3em;
+    color: #4CAF50;
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+
+/* Стили для списка игроков ФИНАЛА ФИНАЛИСТОВ */
+.players-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 15px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.player-item {
+    background: rgba(255,255,255,0.15);
+    padding: 15px 20px;
+    border-radius: 10px;
+    font-size: 1.1em;
+    text-align: left;
+    border-left: 4px solid #4CAF50;
+    transition: all 0.3s ease;
+}
+
+.player-item:hover {
+    background: rgba(255,255,255,0.25);
+    transform: translateX(5px);
+}
+
+/* Стили для медалей САТЕЛЛИТА */
+.medals-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 15px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.medal-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255,255,255,0.15);
+    padding: 15px 20px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    border-left: 4px solid #FFD700;
+}
+
+.medal-item:hover {
+    background: rgba(255,255,255,0.25);
+    transform: translateX(5px);
+}
+
+.medal-item .player-name {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: white;
+}
+
+.medal-item .medals {
+    font-size: 1.5em;
+    display: flex;
+    gap: 5px;
+}
+
 /* Адаптивность для мобильных */
 @media (max-width: 768px) {
+    .header-top {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .special-tab {
+        min-width: 150px;
+        margin: 5px 0;
+    }
+    
+    .special-tab.left,
+    .special-tab.right {
+        margin: 5px 0;
+    }
+    
+    header h1 {
+        font-size: 2em;
+        order: -1;
+    }
+    
     .expand-button {
         display: block;
     }
@@ -396,10 +539,6 @@ header h1 {
     .stats {
         grid-template-columns: 1fr;
         gap: 15px;
-    }
-    
-    header h1 {
-        font-size: 2em;
     }
     
     .tournament-phase {
@@ -436,6 +575,25 @@ header h1 {
     .tab-button {
         margin: 5px 0;
         width: 200px;
+    }
+    
+    .special-tab-content {
+        padding: 20px;
+    }
+    
+    .special-tab-content h2 {
+        font-size: 2em;
+    }
+    
+    .players-list,
+    .medals-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .medal-item {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
     }
     
     /* День 1, 2, 3: по умолчанию №, Имя, Итог */
@@ -521,5 +679,15 @@ header h1 {
         min-width: 40px;
         font-size: 0.65em;
         padding: 2px 4px;
+    }
+    
+    .special-tab {
+        padding: 10px 15px;
+        font-size: 0.8em;
+        min-width: 120px;
+    }
+    
+    .special-tab-content h2 {
+        font-size: 1.8em;
     }
 }
