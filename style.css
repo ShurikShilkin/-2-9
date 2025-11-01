@@ -730,3 +730,66 @@ header h1 {
         padding: 12px 8px;
     }
 }
+/* Стили для специальной статистики */
+#specialStats {
+    grid-template-columns: 1fr;
+    max-width: 200px;
+    margin: 30px auto;
+}
+
+#specialStats .stat-item {
+    background: rgba(255,255,255,0.2);
+    border: 2px solid rgba(255,255,255,0.3);
+}
+
+#specialTabButton {
+    background: #4CAF50;
+    font-weight: bold;
+    min-width: 300px;
+}
+
+/* Адаптивность для специальных вкладок */
+@media (max-width: 768px) {
+    #specialTabButton {
+        min-width: 250px;
+        font-size: 0.9em;
+    }
+    
+    #specialStats {
+        max-width: 180px;
+    }
+}
+
+@media (max-width: 480px) {
+    #specialTabButton {
+        min-width: 200px;
+        font-size: 0.8em;
+    }
+    
+    #specialStats {
+        max-width: 160px;
+    }
+}
+/* Стили для кнопки Назад */
+.back-button {
+    background: #ff9800 !important;
+    margin-left: 10px;
+}
+
+.back-button:hover {
+    background: #f57c00 !important;
+    transform: translateX(-2px);
+}
+
+/* Адаптивность для специальных вкладок */
+@media (max-width: 768px) {
+    #specialTabs {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .back-button {
+        margin-left: 0;
+        margin-top: 5px;
+    }
+}
