@@ -542,6 +542,201 @@ function fillBountiesTable() {
     });
 }
 
+// Функции для заполнения таблиц с поиском (сохраняют оригинальную нумерацию)
+
+function fillDay1TableWithSearch(foundPlayers, searchTerm) {
+    const tableBody = document.getElementById('playersTable');
+    tableBody.innerHTML = '';
+    
+    // Показываем только найденных игроков, но с их оригинальными номерами
+    foundPlayers.forEach((player) => {
+        const row = document.createElement('tr');
+        row.className = 'search-highlight';
+        
+        const exitClass = player.exit !== 0 ? "exit-time" : "exit-zero";
+        const exitDisplay = player.exit !== 0 ? formatNumber(player.exit) : "-";
+        const resultClass = player.result >= 0 ? "chips-positive" : "chips-negative";
+        
+        // Подсвечиваем найденный текст в имени
+        const highlightedName = highlightText(player.name, searchTerm);
+        
+        row.innerHTML = `
+            <td class="number-column">${player.number}</td>
+            <td class="player-name">${highlightedName}</td>
+            <td>${formatNumber(player.participation)}</td>
+            <td>${formatNumber(player.start)}</td>
+            <td>${formatNumber(player.rebuy)}</td>
+            <td class="${exitClass}">${exitDisplay}</td>
+            <td class="${resultClass}">${formatNumber(player.result)}</td>
+        `;
+        
+        tableBody.appendChild(row);
+    });
+}
+
+function fillDay2TableWithSearch(foundPlayers, searchTerm) {
+    const tableBody = document.getElementById('day2Table');
+    tableBody.innerHTML = '';
+    
+    foundPlayers.forEach((player) => {
+        const row = document.createElement('tr');
+        row.className = 'search-highlight';
+        
+        const exitClass = player.exit !== 0 ? "exit-time" : "exit-zero";
+        const exitDisplay = player.exit !== 0 ? formatNumber(player.exit) : "-";
+        const resultClass = player.result >= 0 ? "chips-positive" : "chips-negative";
+        
+        const highlightedName = highlightText(player.name, searchTerm);
+        
+        row.innerHTML = `
+            <td class="number-column">${player.number}</td>
+            <td class="player-name">${highlightedName}</td>
+            <td>${formatNumber(player.participation)}</td>
+            <td>${formatNumber(player.start)}</td>
+            <td>${formatNumber(player.rebuy)}</td>
+            <td class="${exitClass}">${exitDisplay}</td>
+            <td class="${resultClass}">${formatNumber(player.result)}</td>
+        `;
+        
+        tableBody.appendChild(row);
+    });
+}
+
+function fillDay3TableWithSearch(foundPlayers, searchTerm) {
+    const tableBody = document.getElementById('day3Table');
+    tableBody.innerHTML = '';
+    
+    if (foundPlayers.length === 0) {
+        tableBody.innerHTML = `
+            <tr>
+                <td colspan="7" style="text-align: center; padding: 40px; color: #666;">
+                    Игроки не найдены
+                </td>
+            </tr>
+        `;
+        return;
+    }
+    
+    foundPlayers.forEach((player) => {
+        const row = document.createElement('tr');
+        row.className = 'search-highlight';
+        
+        const exitClass = player.exit !== 0 ? "exit-time" : "exit-zero";
+        const exitDisplay = player.exit !== 0 ? formatNumber(player.exit) : "-";
+        const resultClass = player.result >= 0 ? "chips-positive" : "chips-negative";
+        
+        const highlightedName = highlightText(player.name, searchTerm);
+        
+        row.innerHTML = `
+            <td class="number-column">${player.number}</td>
+            <td class="player-name">${highlightedName}</td>
+            <td>${formatNumber(player.participation)}</td>
+            <td>${formatNumber(player.start)}</td>
+            <td>${formatNumber(player.rebuy)}</td>
+            <td class="${exitClass}">${exitDisplay}</td>
+            <td class="${resultClass}">${formatNumber(player.result)}</td>
+        `;
+        
+        tableBody.appendChild(row);
+    });
+}
+
+function fillFinalTableWithSearch(foundPlayers, searchTerm) {
+    const tableBody = document.getElementById('finalTable');
+    tableBody.innerHTML = '';
+    
+    const allFinalPlayers = getAllFinalPlayers();
+    const positionChanges = calculateFinalPositionChanges();
+    
+    // Сортируем как в оригинальной таблице
+    allFinalPlayers.sort((a, b) => (b.day1 + b.day2 + b.day3) - (a.day1 + a.day2 + a.day3));
+    
+    // Показываем только найденных игроков с их позициями в финале
+    const filteredPlayers = allFinalPlayers.filter(player => 
+        foundPlayers.some(found => found.name === player.name)
+    );
+    
+    if (filteredPlayers.length === 0) {
+        tableBody.innerHTML = `
+            <tr>
+                <td colspan="7" style="text-align: center; padding: 40px; color: #666;">
+                    Игроки не найдены
+                </td>
+            </tr>
+        `;
+        return;
+    }
+    
+    filteredPlayers.forEach((player, index) => {
+        const row = document.createElement('tr');
+        row.className = 'search-highlight';
+        
+        const total = player.day1 + player.day2 + player.day3;
+        const changeData = positionChanges.get(player.name);
+        const totalClass = total >= 0 ? "final-total positive" : "final-total negative";
+        
+        // Находим оригинальную позицию игрока в финале
+        const originalPosition = allFinalPlayers.findIndex(p => p.name === player.name) + 1;
+        const highlightedName = highlightText(player.name, searchTerm);
+        
+        row.innerHTML = `
+            <td class="number-column">${originalPosition}</td>
+            <td class="player-name">${highlightedName}</td>
+            <td>${createPositionChangeHTML(changeData)}</td>
+            <td class="result-column">${formatNumber(player.day1)}</td>
+            <td class="result-column">${formatNumber(player.day2)}</td>
+            <td class="result-column">${formatNumber(player.day3)}</td>
+            <td class="${totalClass}">${formatNumber(total)}</td>
+        `;
+        
+        tableBody.appendChild(row);
+    });
+}
+
+function fillBountiesTableWithSearch(foundPlayers, searchTerm) {
+    const tableBody = document.getElementById('bountiesTable');
+    tableBody.innerHTML = '';
+    
+    // Сортируем как в оригинале
+    const sortedBounties = [...bountyPlayers].sort((a, b) => b.bounty - a.bounty);
+    const filteredBounties = sortedBounties.filter(player => 
+        foundPlayers.some(found => found.name === player.name)
+    );
+    
+    if (filteredBounties.length === 0) {
+        tableBody.innerHTML = `
+            <tr>
+                <td colspan="2" style="text-align: center; padding: 40px; color: #666;">
+                    Игроки не найдены
+                </td>
+            </tr>
+        `;
+        return;
+    }
+    
+    filteredBounties.forEach((player) => {
+        const row = document.createElement('tr');
+        row.className = 'search-highlight';
+        
+        const highlightedName = highlightText(player.name, searchTerm);
+        
+        row.innerHTML = `
+            <td class="player-name">${highlightedName}</td>
+            <td class="chips-positive">${formatNumber(player.bounty)}</td>
+        `;
+        
+        tableBody.appendChild(row);
+    });
+}
+
+// Функция для подсветки найденного текста
+function highlightText(text, searchTerm) {
+    if (!searchTerm) return text;
+    
+    const regex = new RegExp(`(${searchTerm})`, 'gi');
+    return text.replace(regex, '<span class="search-highlight-text">$1</span>');
+}
+
 // Автодополнение для поиска
 function setupAutocomplete() {
     const searchInput = document.getElementById('searchInput');
@@ -653,6 +848,7 @@ function searchPlayers() {
     const activeTab = document.querySelector('.tab-content.active').id;
     
     if (searchTerm === '') {
+        // Если поиск пустой, показываем все данные
         if (activeTab === 'day1') {
             fillDay1Table();
         } else if (activeTab === 'day2') {
@@ -668,8 +864,48 @@ function searchPlayers() {
         return;
     }
     
-    // Поиск работает только для основных вкладок с таблицами
-    document.getElementById('searchResults').style.display = 'none';
+    // Ищем игроков по всем вкладкам
+    let foundPlayers = [];
+    
+    if (activeTab === 'day1') {
+        foundPlayers = day1Players.filter(player => 
+            player.name.toLowerCase().includes(searchTerm)
+        );
+        fillDay1TableWithSearch(foundPlayers, searchTerm);
+    } else if (activeTab === 'day2') {
+        foundPlayers = day2Players.filter(player => 
+            player.name.toLowerCase().includes(searchTerm)
+        );
+        fillDay2TableWithSearch(foundPlayers, searchTerm);
+    } else if (activeTab === 'day3') {
+        foundPlayers = day3Players.filter(player => 
+            player.name.toLowerCase().includes(searchTerm)
+        );
+        fillDay3TableWithSearch(foundPlayers, searchTerm);
+    } else if (activeTab === 'final') {
+        const allFinalPlayers = getAllFinalPlayers();
+        foundPlayers = allFinalPlayers.filter(player => 
+            player.name.toLowerCase().includes(searchTerm)
+        );
+        fillFinalTableWithSearch(foundPlayers, searchTerm);
+    } else if (activeTab === 'bounties') {
+        foundPlayers = bountyPlayers.filter(player => 
+            player.name.toLowerCase().includes(searchTerm)
+        );
+        fillBountiesTableWithSearch(foundPlayers, searchTerm);
+    }
+    
+    // Показываем результаты поиска
+    const resultsCount = document.getElementById('resultsCount');
+    const searchResults = document.getElementById('searchResults');
+    
+    if (foundPlayers.length > 0) {
+        resultsCount.textContent = foundPlayers.length;
+        searchResults.style.display = 'block';
+    } else {
+        searchResults.style.display = 'block';
+        resultsCount.textContent = '0';
+    }
 }
 
 // Обновление статистики при переключении вкладок
