@@ -272,6 +272,24 @@ header h1 {
     font-size: 0.9em;
 }
 
+/* Стили для поиска */
+.search-highlight {
+    background: #fff3cd !important;
+    border-left: 4px solid #ffc107;
+}
+
+.search-highlight:hover {
+    background: #ffeaa7 !important;
+}
+
+.search-highlight-text {
+    background: #FFD700;
+    padding: 2px 4px;
+    border-radius: 3px;
+    font-weight: bold;
+    color: #333;
+}
+
 /* Кнопка развертывания для мобильных */
 .expand-button {
     display: none;
@@ -510,6 +528,35 @@ header h1 {
     gap: 5px;
 }
 
+/* Стили для специальной статистики */
+#specialStats {
+    grid-template-columns: 1fr;
+    max-width: 200px;
+    margin: 30px auto;
+}
+
+#specialStats .stat-item {
+    background: rgba(255,255,255,0.2);
+    border: 2px solid rgba(255,255,255,0.3);
+}
+
+#specialTabButton {
+    background: #4CAF50;
+    font-weight: bold;
+    min-width: 300px;
+}
+
+/* Стили для кнопки Назад */
+.back-button {
+    background: #ff9800 !important;
+    margin-left: 10px;
+}
+
+.back-button:hover {
+    background: #f57c00 !important;
+    transform: translateX(-2px);
+}
+
 /* Адаптивность для мобильных */
 @media (max-width: 768px) {
     .header-top {
@@ -594,6 +641,26 @@ header h1 {
         flex-direction: column;
         gap: 10px;
         text-align: center;
+    }
+    
+    /* Адаптивность для специальных вкладок */
+    #specialTabs {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .back-button {
+        margin-left: 0;
+        margin-top: 5px;
+    }
+    
+    #specialTabButton {
+        min-width: 250px;
+        font-size: 0.9em;
+    }
+    
+    #specialStats {
+        max-width: 180px;
     }
     
     /* Исправляем сжатие имен для вкладки САТЕЛЛИТ */
@@ -729,38 +796,7 @@ header h1 {
     #satellite2025 .medal-item {
         padding: 12px 8px;
     }
-}
-/* Стили для специальной статистики */
-#specialStats {
-    grid-template-columns: 1fr;
-    max-width: 200px;
-    margin: 30px auto;
-}
-
-#specialStats .stat-item {
-    background: rgba(255,255,255,0.2);
-    border: 2px solid rgba(255,255,255,0.3);
-}
-
-#specialTabButton {
-    background: #4CAF50;
-    font-weight: bold;
-    min-width: 300px;
-}
-
-/* Адаптивность для специальных вкладок */
-@media (max-width: 768px) {
-    #specialTabButton {
-        min-width: 250px;
-        font-size: 0.9em;
-    }
     
-    #specialStats {
-        max-width: 180px;
-    }
-}
-
-@media (max-width: 480px) {
     #specialTabButton {
         min-width: 200px;
         font-size: 0.8em;
@@ -768,28 +804,5 @@ header h1 {
     
     #specialStats {
         max-width: 160px;
-    }
-}
-/* Стили для кнопки Назад */
-.back-button {
-    background: #ff9800 !important;
-    margin-left: 10px;
-}
-
-.back-button:hover {
-    background: #f57c00 !important;
-    transform: translateX(-2px);
-}
-
-/* Адаптивность для специальных вкладок */
-@media (max-width: 768px) {
-    #specialTabs {
-        flex-direction: column;
-        gap: 10px;
-    }
-    
-    .back-button {
-        margin-left: 0;
-        margin-top: 5px;
     }
 }
