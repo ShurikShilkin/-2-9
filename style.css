@@ -706,14 +706,26 @@ header h1 {
         display: none;
     }
     
-    /* Финал: по умолчанию №, Имя, Изменение, ИТОГИ */
+    /* Финал: по умолчанию №, Имя, Изменение, Отборочные дни, ИТОГ */
     #final .tournament-table th:nth-child(4),
     #final .tournament-table th:nth-child(5),
     #final .tournament-table th:nth-child(6),
+    #final .tournament-table th:nth-child(8),
+    #final .tournament-table th:nth-child(9),
+    #final .tournament-table th:nth-child(10),
     #final .tournament-table td:nth-child(4),
     #final .tournament-table td:nth-child(5),
-    #final .tournament-table td:nth-child(6) {
+    #final .tournament-table td:nth-child(6),
+    #final .tournament-table td:nth-child(8),
+    #final .tournament-table td:nth-child(9),
+    #final .tournament-table td:nth-child(10) {
         display: none;
+    }
+    
+    /* Когда таблица развернута - показываем ВСЕ колонки */
+    .tournament-table.expanded th,
+    .tournament-table.expanded td {
+        display: table-cell !important;
     }
     
     /* Охота за головами: по умолчанию Имя, Бонус */
