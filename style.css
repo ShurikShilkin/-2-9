@@ -157,6 +157,8 @@ header h1 {
     display: flex;
     flex-direction: column;
     gap: 15px;
+    align-items: center;
+    justify-content: center;
 }
 
 .date-item {
@@ -557,6 +559,21 @@ header h1 {
     transform: translateX(-2px);
 }
 
+/* Стили для вкладки Результаты турнира */
+.top-player {
+    background: linear-gradient(135deg, #fff9c4, #fff59d) !important;
+    border-left: 4px solid #FFD700 !important;
+}
+
+.top-player:hover {
+    background: linear-gradient(135deg, #fff59d, #fff176) !important;
+}
+
+.medals-column {
+    font-size: 1.2em;
+    text-align: center !important;
+}
+
 /* Адаптивность для мобильных */
 @media (max-width: 768px) {
     .header-top {
@@ -720,6 +737,12 @@ header h1 {
     #final .tournament-table td:nth-child(9),
     #final .tournament-table td:nth-child(10) {
         display: none;
+    }
+    
+    /* Результаты турнира: по умолчанию №, Имя, Награды */
+    #tournamentResults .tournament-table th,
+    #tournamentResults .tournament-table td {
+        display: table-cell !important;
     }
     
     /* Когда таблица развернута - показываем ВСЕ колонки */
