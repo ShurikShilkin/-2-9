@@ -157,7 +157,7 @@ const tournamentResultsPlayers = [
     { number: 21, name: "Иван Баж", medals: "" },
     { number: 22, name: "Саша Коч", medals: "" },
     { number: 23, name: "Василий Б", medals: "" },
-    { number: 24, name: "Кссюша Лис", medals: "" },
+    { number: 24, name: "Ксюша Лис", medals: "" },
     { number: 25, name: "Василий АБВ", medals: "" },
     { number: 26, name: "Инна М", medals: "" },
     { number: 27, name: "Славяна", medals: "" },
@@ -1306,3 +1306,4 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('autocompleteResults').style.display = 'none';
     });
 });
+
