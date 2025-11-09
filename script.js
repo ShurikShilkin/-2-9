@@ -132,32 +132,64 @@ const bountyPlayers = [
     { name: "Макар Аве", bounty: 75 }
 ];
 
-// Данные роста блайндов
-const blindsData = [
-    { number: 1, startTime: "17-00", endTime: "17-25", sb: 5, bb: 10, ante: 10 },
-    { number: 2, startTime: "17-25", endTime: "17-50", sb: 10, bb: 20, ante: 20 },
-    { number: 3, startTime: "18-00", endTime: "18-15", sb: 15, bb: 30, ante: 30 },
-    { number: 4, startTime: "18-15", endTime: "18-30", sb: 20, bb: 40, ante: 40 },
-    { number: 5, startTime: "18-30", endTime: "18-50", sb: 35, bb: 70, ante: 70 },
-    { number: 6, startTime: "19-00", endTime: "19-15", sb: 50, bb: 100, ante: 100 },
-    { number: 7, startTime: "19-15", endTime: "19-30", sb: 75, bb: 150, ante: 150 },
-    { number: 8, startTime: "19-30", endTime: "19-50", sb: 100, bb: 200, ante: 200 },
-    { number: 9, startTime: "20-00", endTime: "20-15", sb: 150, bb: 300, ante: 300 },
-    { number: 10, startTime: "20-15", endTime: "20-30", sb: 200, bb: 400, ante: 400 },
-    { number: 11, startTime: "20-30", endTime: "20-50", sb: 300, bb: 600, ante: 600 },
-    { number: 12, startTime: "21-00", endTime: "21-15", sb: 400, bb: 800, ante: 800 },
-    { number: 13, startTime: "21-15", endTime: "21-30", sb: 500, bb: 1000, ante: 1000 },
-    { number: 14, startTime: "21-30", endTime: "21-50", sb: 700, bb: 1400, ante: 1400 },
-    { number: 15, startTime: "22-00", endTime: "22-15", sb: 1000, bb: 2000, ante: 2000 },
-    { number: 16, startTime: "22-15", endTime: "22-30", sb: 1500, bb: 3000, ante: 3000 },
-    { number: 17, startTime: "22-30", endTime: "22-50", sb: 2000, bb: 4000, ante: 4000 },
-    { number: 18, startTime: "23-00", endTime: "23-15", sb: 2500, bb: 5000, ante: 5000 },
-    { number: 19, startTime: "23-15", endTime: "23-30", sb: 3000, bb: 6000, ante: 6000 },
-    { number: 20, startTime: "23-30", endTime: "23-45", sb: 4000, bb: 8000, ante: 8000 },
-    { number: 21, startTime: "23-45", endTime: "0-00", sb: 5000, bb: 10000, ante: 10000 },
-    { number: 22, startTime: "0-00", endTime: "0-10", sb: 6000, bb: 12000, ante: 12000 },
-    { number: 23, startTime: "0-10", endTime: "0-20", sb: 7500, bb: 15000, ante: 15000 },
-    { number: 24, startTime: "0-20", endTime: "0-30", sb: 9000, bb: 18000, ante: 18000 }
+// Данные для вкладки Результаты турнира
+const tournamentResultsPlayers = [
+    { number: 1, name: "Богдан Анц", medals: "🥇" },
+    { number: 2, name: "Семён Ануфриев", medals: "🥈" },
+    { number: 3, name: "Андрей Джип", medals: "🥉" },
+    { number: 4, name: "Иван Антипов", medals: "4️⃣" },
+    { number: 5, name: "Даша Yellow", medals: "" },
+    { number: 6, name: "Михаил Козадой", medals: "" },
+    { number: 7, name: "Сергей Ман", medals: "" },
+    { number: 8, name: "Вова Баж", medals: "" },
+    { number: 9, name: "Даша Гри", medals: "" },
+    { number: 10, name: "Вася Е", medals: "" },
+    { number: 11, name: "Миша Скиф", medals: "" },
+    { number: 12, name: "Шурик Шилкин", medals: "" },
+    { number: 13, name: "Родион Шашурин", medals: "" },
+    { number: 14, name: "Даня КДД", medals: "" },
+    { number: 15, name: "Макар Аве", medals: "" },
+    { number: 16, name: "Даниил Ершов", medals: "" },
+    { number: 17, name: "Саша Тяжелов", medals: "" },
+    { number: 18, name: "Том", medals: "" },
+    { number: 19, name: "Дмитрий Ник", medals: "" },
+    { number: 20, name: "Влад Сам", medals: "" },
+    { number: 21, name: "Иван Баж", medals: "" },
+    { number: 22, name: "Саша Коч", medals: "" },
+    { number: 23, name: "Василий Б", medals: "" },
+    { number: 24, name: "Кссюша Лис", medals: "" },
+    { number: 25, name: "Василий АБВ", medals: "" },
+    { number: 26, name: "Инна М", medals: "" },
+    { number: 27, name: "Славяна", medals: "" },
+    { number: 28, name: "Никита Yellow", medals: "" },
+    { number: 29, name: "Даниил Глухов", medals: "" },
+    { number: 30, name: "Всеволод Кузнецов", medals: "" },
+    { number: 31, name: "Оксана Б", medals: "" },
+    { number: 32, name: "Надя Жб", medals: "" },
+    { number: 33, name: "Анна К", medals: "" },
+    { number: 34, name: "Макс Ник", medals: "" },
+    { number: 35, name: "Диана Зак", medals: "" },
+    { number: 36, name: "Асхат Суханбердин", medals: "" },
+    { number: 37, name: "Серафима Онежко", medals: "" },
+    { number: 38, name: "Полина Матыцына", medals: "" },
+    { number: 39, name: "Саша Б", medals: "" },
+    { number: 40, name: "Александр Будда", medals: "" },
+    { number: 41, name: "Серж", medals: "" },
+    { number: 42, name: "Кристина Дым", medals: "" },
+    { number: 43, name: "Александр Исаев", medals: "" },
+    { number: 44, name: "Иван John", medals: "" },
+    { number: 45, name: "Вова Гриненко", medals: "" },
+    { number: 46, name: "Egrinderolls", medals: "" },
+    { number: 47, name: "Петя Федоров", medals: "" },
+    { number: 48, name: "Свидетель", medals: "" },
+    { number: 49, name: "Егор Полесов", medals: "" },
+    { number: 50, name: "Даня Гол", medals: "" },
+    { number: 51, name: "Никита Эфа", medals: "" },
+    { number: 52, name: "Федор К", medals: "" },
+    { number: 53, name: "Сергей Логинов", medals: "" },
+    { number: 54, name: "Евгений Ц", medals: "" },
+    { number: 55, name: "Дима БДР", medals: "" },
+    { number: 56, name: "Олег Гвед", medals: "" }
 ];
 
 // Данные участия в финале, Т2 и охоты за головами
@@ -272,8 +304,8 @@ function showMainInterface(tabName) {
         phaseElement.textContent = 'Финал - 8.11.2025';
     } else if (tabName === 'bounties') {
         phaseElement.textContent = 'Охота за головами';
-    } else if (tabName === 'blinds') {
-        phaseElement.textContent = 'Структура блайндов';
+    } else if (tabName === 'tournamentResults') {
+        phaseElement.textContent = 'Результаты турнира'; // Убрали дату
     }
 }
 
@@ -361,7 +393,7 @@ function calculateAverageStack() {
         players = day2Players;
     } else if (activeTab === 'day3') {
         players = day3Players;
-    } else if (activeTab === 'bounties' || activeTab === 'final2025' || activeTab === 'satellite2025' || activeTab === 'blinds') {
+    } else if (activeTab === 'bounties' || activeTab === 'final2025' || activeTab === 'satellite2025' || activeTab === 'tournamentResults') {
         return 0; // Для специальных вкладок не считаем средний стек
     } else if (activeTab === 'final') {
         // Для финала считаем среднее от полного итога (с бонусами)
@@ -715,21 +747,23 @@ function fillBountiesTable() {
     });
 }
 
-// Заполнение таблицы Блайндов
-function fillBlindsTable() {
-    const tableBody = document.getElementById('blindsTable');
+// Заполнение таблицы Результатов турнира
+function fillTournamentResultsTable() {
+    const tableBody = document.getElementById('tournamentResultsTable');
     tableBody.innerHTML = '';
     
-    blindsData.forEach((level) => {
+    tournamentResultsPlayers.forEach((player, index) => {
         const row = document.createElement('tr');
         
+        // Добавляем класс для первых 24 игроков
+        if (index < 24) {
+            row.classList.add('top-player');
+        }
+        
         row.innerHTML = `
-            <td class="number-column">${level.number}</td>
-            <td>${level.startTime}</td>
-            <td>${level.endTime}</td>
-            <td class="chips-positive">${formatNumber(level.sb)}</td>
-            <td class="chips-positive">${formatNumber(level.bb)}</td>
-            <td class="chips-positive">${formatNumber(level.ante)}</td>
+            <td class="number-column">${player.number}</td>
+            <td class="player-name">${player.name}</td>
+            <td class="medals-column">${player.medals}</td>
         `;
         
         tableBody.appendChild(row);
@@ -943,6 +977,46 @@ function fillBountiesTableWithSearch(foundPlayers, searchTerm) {
     });
 }
 
+function fillTournamentResultsTableWithSearch(foundPlayers, searchTerm) {
+    const tableBody = document.getElementById('tournamentResultsTable');
+    tableBody.innerHTML = '';
+    
+    const filteredPlayers = tournamentResultsPlayers.filter(player => 
+        player.name.toLowerCase().includes(searchTerm)
+    );
+    
+    if (filteredPlayers.length === 0) {
+        tableBody.innerHTML = `
+            <tr>
+                <td colspan="3" style="text-align: center; padding: 40px; color: #666;">
+                    Игроки не найдены
+                </td>
+            </tr>
+        `;
+        return;
+    }
+    
+    filteredPlayers.forEach((player, index) => {
+        const row = document.createElement('tr');
+        row.className = 'search-highlight';
+        
+        // Добавляем класс для первых 24 игроков (в оригинальной нумерации)
+        if (player.number <= 24) {
+            row.classList.add('top-player');
+        }
+        
+        const highlightedName = highlightText(player.name, searchTerm);
+        
+        row.innerHTML = `
+            <td class="number-column">${player.number}</td>
+            <td class="player-name">${highlightedName}</td>
+            <td class="medals-column">${player.medals}</td>
+        `;
+        
+        tableBody.appendChild(row);
+    });
+}
+
 // Функция для подсветки найденного текста
 function highlightText(text, searchTerm) {
     if (!searchTerm) return text;
@@ -960,22 +1034,24 @@ function setupAutocomplete() {
     const allPlayers = [...day1Players, ...day2Players, ...day3Players, ...bountyPlayers.map(p => ({ name: p.name }))];
     const playerNames = [...new Set(allPlayers.map(p => p.name))];
     
-    // Добавляем игроков из специальных вкладок
+    // Добавляем игроков из специальных вкладок и результатов турнира
     const final2025Players = [
         "Александр Гиг", "Мария Павлова", "Даша Yellow", "Михаил Козадой", 
         "Вадим Константинов", "Руф", "Влад Пив", "Артур Король", 
-        "Шурик Шилкин", "Даня Гол", "Никита Yellow"
+        "Шурик Шилкин", "Даня Гол", "Никита Yellow", "Богдан Анц", "Семён Ануфриев"
     ];
     
     const satellitePlayers = [
         "Жан Балацкий", "Иван Чемодан", "Иван Антипов", "Олег Сми", 
-        "Семён Ануфриев", "Egrinderolls", "Саша Тяжелов", "Асхат Суханбердин", 
+        "Egrinderolls", "Саша Тяжелов", "Асхат Суханбердин", 
         "Саша Коч", "Ксюша Петрушина", "Дмитрий Ник", "Андрей Ф", 
         "Ладали", "Даша Гри", "Искандер", "Вова Гриненко", 
-        "Даня КДД", "Надя Жб", "Константин Сидорин", "Богдан Анц", "Славяна"
+        "Даня КДД", "Надя Жб", "Константин Сидорин", "Славяна", "Андрей Джип"
     ];
     
-    playerNames.push(...final2025Players, ...satellitePlayers);
+    const tournamentResultsNames = tournamentResultsPlayers.map(p => p.name);
+    
+    playerNames.push(...final2025Players, ...satellitePlayers, ...tournamentResultsNames);
     const uniquePlayerNames = [...new Set(playerNames)];
     
     searchInput.addEventListener('input', function() {
@@ -1073,8 +1149,8 @@ function searchPlayers() {
             fillFinalTable();
         } else if (activeTab === 'bounties') {
             fillBountiesTable();
-        } else if (activeTab === 'blinds') {
-            fillBlindsTable();
+        } else if (activeTab === 'tournamentResults') {
+            fillTournamentResultsTable();
         }
         document.getElementById('searchResults').style.display = 'none';
         return;
@@ -1109,11 +1185,11 @@ function searchPlayers() {
             player.name.toLowerCase().includes(searchTerm)
         );
         fillBountiesTableWithSearch(foundPlayers, searchTerm);
-    } else if (activeTab === 'blinds') {
-        // Для блайндов поиск не применяется
-        fillBlindsTable();
-        document.getElementById('searchResults').style.display = 'none';
-        return;
+    } else if (activeTab === 'tournamentResults') {
+        foundPlayers = tournamentResultsPlayers.filter(player => 
+            player.name.toLowerCase().includes(searchTerm)
+        );
+        fillTournamentResultsTableWithSearch(foundPlayers, searchTerm);
     }
     
     // Показываем результаты поиска
@@ -1130,10 +1206,9 @@ function searchPlayers() {
 }
 
 // Функция для обновления дат в статистике
-function updateDates(nextGame, finalDate) {
+function updateDates(nextGame) {
     const dateItems = document.querySelectorAll('.date-value');
     if (dateItems[0]) dateItems[0].innerHTML = nextGame;
-    if (dateItems[1]) dateItems[1].textContent = finalDate;
 }
 
 // Обновление статистики при переключении вкладок
@@ -1152,7 +1227,7 @@ function updateStats() {
         animateCounter(averageStackElement, averageStack);
         
         // Обновляем даты для Дня 1
-        updateDates('Финал<br>8.11.2025', '8.11.2025');
+        updateDates('13.11.2025');
     } else if (activeTab === 'day2') {
         totalPlayers = day2Players.length;
         averageStack = calculateAverageStack();
@@ -1160,7 +1235,7 @@ function updateStats() {
         animateCounter(averageStackElement, averageStack);
         
         // Обновляем даты для Дня 2
-        updateDates('Финал<br>8.11.2025', '8.11.2025');
+        updateDates('13.11.2025');
     } else if (activeTab === 'day3') {
         totalPlayers = day3Players.length;
         averageStack = calculateAverageStack();
@@ -1168,26 +1243,26 @@ function updateStats() {
         animateCounter(averageStackElement, averageStack);
         
         // Обновляем даты для Дня 3
-        updateDates('Финал<br>8.11.2025', '8.11.2025');
+        updateDates('13.11.2025');
     } else if (activeTab === 'bounties') {
         totalPlayers = bountyPlayers.length;
         averageStack = 0;
         animateCounter(totalPlayersElement, totalPlayers);
         animateCounter(averageStackElement, averageStack);
         
-        updateDates('Финал<br>8.11.2025', '8.11.2025');
-    } else if (activeTab === 'blinds') {
-        totalPlayers = blindsData.length;
-        averageStack = 0;
+        updateDates('13.11.2025');
+    } else if (activeTab === 'tournamentResults') {
+        totalPlayers = tournamentResultsPlayers.length;
+        averageStack = 0; // Не считаем средний стек для результатов турнира
         animateCounter(totalPlayersElement, totalPlayers);
         animateCounter(averageStackElement, averageStack);
         
-        updateDates('Финал<br>8.11.2025', '8.11.2025');
+        updateDates('13.11.2025');
     } else if (activeTab === 'final2025') {
-        totalPlayers = 11; // 11 участников в финале финалистов
+        totalPlayers = 13; // 13 участников в финале финалистов
         animateCounter(specialTotalPlayersElement, totalPlayers);
     } else if (activeTab === 'satellite2025') {
-        totalPlayers = 21; // 21 участник в сателлите
+        totalPlayers = 20; // 20 участников в сателлите
         animateCounter(specialTotalPlayersElement, totalPlayers);
     } else {
         const finalPlayers = getAllFinalPlayers();
@@ -1196,7 +1271,7 @@ function updateStats() {
         animateCounter(totalPlayersElement, totalPlayers);
         animateCounter(averageStackElement, averageStack);
         
-        updateDates('Финал<br>8.11.2025', '8.11.2025');
+        updateDates('13.11.2025');
     }
 }
 
@@ -1209,11 +1284,11 @@ document.addEventListener('DOMContentLoaded', function() {
     fillDay3Table();
     fillFinalTable();
     fillBountiesTable();
-    fillBlindsTable();
+    fillTournamentResultsTable();
     setupAutocomplete();
     
-    // Показываем вкладку ФИНАЛ при загрузке
-    showTab('final');
+    // Показываем вкладку Результаты турнира при загрузке
+    showTab('tournamentResults');
     
     document.getElementById('searchInput').addEventListener('input', searchPlayers);
     
