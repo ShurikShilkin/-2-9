@@ -1,250 +1,72 @@
 // Данные игроков для Дня 1
 const day1Players = [
-    { number: 1, name: "Даня КДД", participation: 3100, start: 2100, rebuy: 2000, exit: 25110, result: 24110 },
-    { number: 2, name: "Сергей Ман", participation: 3100, start: 2100, rebuy: 2000, exit: 22075, result: 21075 },
-    { number: 3, name: "Михаил Козадой", participation: 3100, start: 2100, rebuy: 2000, exit: 11165, result: 10165 },
-    { number: 4, name: "Том", participation: 3100, start: 2100, rebuy: 2000, exit: 10000, result: 9000 },
-    { number: 5, name: "Вася Е", participation: 3100, start: 2100, rebuy: 0, exit: 8050, result: 9050 },
-    { number: 6, name: "Семён Ануфриев", participation: 3100, start: 2100, rebuy: 0, exit: 7570, result: 8570 },
-    { number: 7, name: "Оксана Б", participation: 3100, start: 2100, rebuy: 0, exit: 4260, result: 5260 },
-    { number: 8, name: "Славяна", participation: 3100, start: 2100, rebuy: 0, exit: 4145, result: 5145 },
-    { number: 9, name: "Всеволод Кузнецов", participation: 3100, start: 2100, rebuy: 2000, exit: 3540, result: 2540 },
-    { number: 10, name: "Полина Матыцына", participation: 3100, start: 2100, rebuy: 2000, exit: 2885, result: 1885 },
-    { number: 11, name: "Инна М", participation: 3100, start: 2100, rebuy: 0, exit: 2475, result: 3475 },
-    { number: 12, name: "Макс Ник", participation: 3100, start: 2100, rebuy: 2000, exit: 1165, result: 165 },
-    { number: 13, name: "Саша Б", participation: 3100, start: 2100, rebuy: 2000, exit: 1075, result: 75 },
-    { number: 14, name: "Иван John", participation: 3100, start: 2100, rebuy: 2000, exit: 1045, result: 45 },
-    { number: 15, name: "Александр Исаев", participation: 3100, start: 2100, rebuy: 0, exit: 765, result: 1765 },
-    { number: 16, name: "Александр Будда", participation: 3100, start: 2100, rebuy: 0, exit: 0, result: 1000 },
-    { number: 17, name: "Асхат Суханбердин", participation: 3100, start: 2100, rebuy: 0, exit: 0, result: 1000 },
-    { number: 18, name: "Вова Баж", participation: 3100, start: 2100, rebuy: 2000, exit: 0, result: -1000 },
-    { number: 19, name: "Свидетель", participation: 3100, start: 2100, rebuy: 2000, exit: 0, result: -1000 },
-    { number: 20, name: "Иван Антипов", participation: 3100, start: 2100, rebuy: 2000, exit: 0, result: -1000 },
-    { number: 21, name: "Egrinderolls", participation: 3100, start: 2100, rebuy: 2000, exit: 0, result: -1000 },
-    { number: 22, name: "Саша Коч", participation: 3100, start: 2100, rebuy: 2000, exit: 0, result: -1000 },
-    { number: 23, name: "Надя Жб", participation: 3100, start: 2100, rebuy: 2000, exit: 0, result: -1000 },
-    { number: 24, name: "Макар Аве", participation: 3100, start: 2100, rebuy: 2000, exit: 0, result: -1000 },
-    { number: 25, name: "Шурик Шилкин", participation: 3100, start: 2100, rebuy: 0, exit: 0, result: 1000 },
-    { number: 26, name: "Богдан Анц", participation: 3100, start: 2100, rebuy: 2000, exit: 0, result: -1000 },
-    { number: 27, name: "Петя Федоров", participation: 3100, start: 2100, rebuy: 2000, exit: 0, result: -1000 }
+    { number: 1, name: "Вася Е", participation: 3100, start: 2100, rebuy: 0, exit: 14485, result: 15485 },
+    { number: 2, name: "Богдан Анц", participation: 3100, start: 2100, rebuy: 0, exit: 12000, result: 13000 },
+    { number: 3, name: "Вова Гриненко", participation: 3100, start: 2100, rebuy: 0, exit: 11040, result: 12040 },
+    { number: 4, name: "Анна К", participation: 3100, start: 2100, rebuy: 0, exit: 10640, result: 11640 },
+    { number: 5, name: "Евгений Ц", participation: 3100, start: 2100, rebuy: 0, exit: 9275, result: 10275 },
+    { number: 6, name: "Михаил Козадой", participation: 3100, start: 2100, rebuy: 0, exit: 6740, result: 7740 },
+    { number: 7, name: "Иван Антипов", participation: 3100, start: 2100, rebuy: 2000, exit: 7175, result: 6175 },
+    { number: 8, name: "Славяна", participation: 3100, start: 2100, rebuy: 0, exit: 4215, result: 5215 },
+    { number: 9, name: "Владимир Vladecbeer", participation: 3100, start: 2100, rebuy: 0, exit: 3735, result: 4735 },
+    { number: 10, name: "Свидетель", participation: 3100, start: 2100, rebuy: 0, exit: 3575, result: 4575 },
+    { number: 11, name: "Полина Матыцына", participation: 3100, start: 2100, rebuy: 0, exit: 1490, result: 2490 },
+    { number: 12, name: "Марина Ермакова", participation: 3100, start: 2100, rebuy: 0, exit: 660, result: 1660 },
+    { number: 13, name: "Шурик Шилкин", participation: 3100, start: 2100, rebuy: 0, exit: 300, result: 1300 },
+    { number: 14, name: "Макар Аве", participation: 3100, start: 2100, rebuy: 2000, exit: 2270, result: 1270 },
+    { number: 15, name: "Саша Коч", participation: 3100, start: 2100, rebuy: 0, exit: 0, result: 1000 },
+    { number: 16, name: "Саша Бел", participation: 3100, start: 2100, rebuy: 0, exit: 0, result: 1000 },
+    { number: 17, name: "Светлана Иванова", participation: 3100, start: 2100, rebuy: 2000, exit: 0, result: -1000 },
+    { number: 18, name: "Асхат Суханбердин", participation: 3100, start: 2100, rebuy: 2000, exit: 0, result: -1000 },
+    { number: 19, name: "Михаил Наб", participation: 3100, start: 2100, rebuy: 2000, exit: 0, result: -1000 },
+    { number: 20, name: "Макс Ник", participation: 3100, start: 2100, rebuy: 2000, exit: 0, result: -1000 },
+    { number: 21, name: "Даня КДД", participation: 3100, start: 2100, rebuy: 2000, exit: 0, result: -1000 },
+    { number: 22, name: "Максим Spy", participation: 3100, start: 2100, rebuy: 2000, exit: 0, result: -1000 },
+    { number: 23, name: "Николай Роз", participation: 3100, start: 2100, rebuy: 2000, exit: 0, result: -1000 },
+    { number: 24, name: "Сергей Ман", participation: 3100, start: 2100, rebuy: 2000, exit: 0, result: -1000 },
+    { number: 25, name: "Александр Будда", participation: 3100, start: 2100, rebuy: 2000, exit: 0, result: -1000 },
+    { number: 26, name: "Никита Зейн", participation: 3100, start: 2100, rebuy: 2000, exit: 0, result: -1000 },
+    { number: 27, name: "Инна М", participation: 3100, start: 2100, rebuy: 2000, exit: 0, result: -1000 }
 ];
 
-// Данные игроков для Дня 2
-const day2Players = [
-    { number: 1, name: "Родион Шашурин", participation: 3100, start: 2100, rebuy: 0, exit: 24605, result: 25605 },
-    { number: 2, name: "Сергей Ман", participation: 3100, start: 2100, rebuy: 0, exit: 13710, result: 14710 },
-    { number: 3, name: "Даня КДД", participation: 3100, start: 2100, rebuy: 0, exit: 10895, result: 11895 },
-    { number: 4, name: "Никита Yellow", participation: 3100, start: 2100, rebuy: 2000, exit: 7480, result: 6480 },
-    { number: 5, name: "Саша Коч", participation: 3100, start: 2100, rebuy: 0, exit: 7050, result: 8050 },
-    { number: 6, name: "Том", participation: 3100, start: 2100, rebuy: 0, exit: 6725, result: 7725 },
-    { number: 7, name: "Даша Yellow", participation: 3100, start: 2100, rebuy: 0, exit: 6290, result: 7290 },
-    { number: 8, name: "Богдан Анц", participation: 3100, start: 2100, rebuy: 2000, exit: 5570, result: 4570 },
-    { number: 9, name: "Михаил Козадой", participation: 3100, start: 2100, rebuy: 2000, exit: 4610, result: 3610 },
-    { number: 10, name: "Иван Антипов", participation: 3100, start: 2100, rebuy: 0, exit: 4300, result: 5300 },
-    { number: 11, name: "Макар Аве", participation: 3100, start: 2100, rebuy: 0, exit: 3840, result: 4840 },
-    { number: 12, name: "Макс Ник", participation: 3100, start: 2100, rebuy: 2000, exit: 3710, result: 2710 },
-    { number: 13, name: "Даниил Глухов", participation: 3100, start: 2100, rebuy: 0, exit: 3675, result: 4675 },
-    { number: 14, name: "Всеволод Кузнецов", participation: 3100, start: 2100, rebuy: 2000, exit: 3050, result: 2050 },
-    { number: 15, name: "Диана Зак", participation: 3100, start: 2100, rebuy: 2000, exit: 3045, result: 2045 },
-    { number: 16, name: "Даниил Ершов", participation: 3100, start: 2100, rebuy: 0, exit: 2670, result: 3670 },
-    { number: 17, name: "Василий АБВ", participation: 3100, start: 2100, rebuy: 0, exit: 2630, result: 3630 },
-    { number: 18, name: "Славяна", participation: 3100, start: 2100, rebuy: 2000, exit: 2385, result: 1385 },
-    { number: 19, name: "Шурик Шилкин", participation: 3100, start: 2100, rebuy: 0, exit: 2085, result: 3085 },
-    { number: 20, name: "Вася Е", participation: 3100, start: 2100, rebuy: 2000, exit: 1815, result: 815 },
-    { number: 21, name: "Анна К", participation: 3100, start: 2100, rebuy: 0, exit: 1485, result: 2485 },
-    { number: 22, name: "Серафима Онежко", participation: 3100, start: 2100, rebuy: 0, exit: 1000, result: 2000 },
-    { number: 23, name: "Надя Жб", participation: 3100, start: 2100, rebuy: 0, exit: 970, result: 1970 },
-    { number: 24, name: "Вова Гриненко", participation: 3100, start: 2100, rebuy: 2000, exit: 930, result: -70 },
-    { number: 25, name: "Саша Б", participation: 3100, start: 2100, rebuy: 0, exit: 305, result: 1305 },
-    { number: 26, name: "Инна М", participation: 3100, start: 2100, rebuy: 2000, exit: 170, result: -830 },
-    { number: 27, name: "Семён Ануфриев", participation: 3100, start: 2100, rebuy: 2000, exit: 0, result: -1000 },
-    { number: 28, name: "Кристина Дым", participation: 3100, start: 2100, rebuy: 0, exit: 0, result: 1000 },
-    { number: 29, name: "Влад Сам", participation: 3100, start: 2100, rebuy: 0, exit: 0, result: 1000 },
-    { number: 30, name: "Серж", participation: 3100, start: 2100, rebuy: 0, exit: 0, result: 1000 },
-    { number: 31, name: "Александр Исаев", participation: 3100, start: 2100, rebuy: 2000, exit: 0, result: -1000 },
-    { number: 32, name: "Сергей Логинов", participation: 3100, start: 2100, rebuy: 2000, exit: 0, result: -1000 },
-    { number: 33, name: "Федор К", participation: 3100, start: 2100, rebuy: 2000, exit: 0, result: -1000 },
-    { number: 34, name: "Егор Полесов", participation: 3100, start: 2100, rebuy: 2000, exit: 0, result: -1000 },
-    { number: 35, name: "Даня Гол", participation: 3100, start: 2100, rebuy: 2000, exit: 0, result: -1000 },
-    { number: 36, name: "Оксана Б", participation: 3100, start: 2100, rebuy: 2000, exit: 0, result: -1000 },
-    { number: 37, name: "Никита Эфа", participation: 3100, start: 2100, rebuy: 2000, exit: 0, result: -1000 }
-];
-
-// Данные игроков для Дня 3
-const day3Players = [
-    { number: 1, name: "Даша Гри", participation: 3100, start: 2100, rebuy: 2000, exit: 14215, result: 13215 },
-    { number: 2, name: "Богдан Анц", participation: 3100, start: 2100, rebuy: 0, exit: 12015, result: 13015 },
-    { number: 3, name: "Шурик Шилкин", participation: 3100, start: 2100, rebuy: 0, exit: 8835, result: 9835 },
-    { number: 4, name: "Саша Тяжелов", participation: 3100, start: 2100, rebuy: 0, exit: 4335, result: 5335 },
-    { number: 5, name: "Иван Антипов", participation: 3100, start: 2100, rebuy: 0, exit: 4165, result: 5165 },
-    { number: 6, name: "Сергей Ман", participation: 3100, start: 2100, rebuy: 2000, exit: 3595, result: 2595 },
-    { number: 7, name: "Василий АБВ", participation: 3100, start: 2100, rebuy: 0, exit: 3485, result: 4485 },
-    { number: 8, name: "Вася Е", participation: 3100, start: 2100, rebuy: 2000, exit: 3090, result: 2090 },
-    { number: 9, name: "Макар Аве", participation: 3100, start: 2100, rebuy: 0, exit: 2975, result: 3975 },
-    { number: 10, name: "Инна М", participation: 3100, start: 2100, rebuy: 2000, exit: 2365, result: 1365 },
-    { number: 11, name: "Анна К", participation: 3100, start: 2100, rebuy: 2000, exit: 2175, result: 1175 },
-    { number: 12, name: "Асхат Суханбердин", participation: 3100, start: 2100, rebuy: 0, exit: 0, result: 1000 },
-    { number: 13, name: "Олег Гвед", participation: 3100, start: 2100, rebuy: 2000, exit: 0, result: -1000 },
-    { number: 14, name: "Евгений Ц", participation: 3100, start: 2100, rebuy: 2000, exit: 0, result: -1000 },
-    { number: 15, name: "Саша Коч", participation: 3100, start: 2100, rebuy: 2000, exit: 0, result: -1000 },
-    { number: 16, name: "Надя Жб", participation: 3100, start: 2100, rebuy: 2000, exit: 0, result: -1000 },
-    { number: 17, name: "Дима БДР", participation: 3100, start: 2100, rebuy: 2000, exit: 0, result: -1000 }
-];
-
-// Обновленные данные для Охоты за головами
+// Данные для охоты за головами
 const bountyPlayers = [
-    { name: "Даня КДД", bounty: 2400 },
-    { name: "Даша Гри", bounty: 1575 },
-    { name: "Сергей Ман", bounty: 1425 },
     { name: "Александр Гиг", bounty: 1200 },
     { name: "Мария Павлова", bounty: 1200 },
     { name: "Даша Yellow", bounty: 1200 },
+    { name: "Михаил Козадой", bounty: 1200 },
     { name: "Вадим Константинов", bounty: 1200 },
     { name: "Руф", bounty: 1200 },
     { name: "Влад Пив", bounty: 1200 },
     { name: "Артур Король", bounty: 1200 },
-    { name: "Семён Ануфриев", bounty: 1050 },
-    { name: "Родион Шашурин", bounty: 1050 },
-    { name: "Надя Жб", bounty: 900 },
-    { name: "Саша Коч", bounty: 750 },
-    { name: "Даня Гол", bounty: 600 },
-    { name: "Никита Yellow", bounty: 600 },
-    { name: "Славяна", bounty: 600 },
-    { name: "Шурик Шилкин", bounty: 600 },
+    { name: "Шурик Шилкин", bounty: 1200 },
+    { name: "Даня Гол", bounty: 1200 },
+    { name: "Никита Yellow", bounty: 1200 },
+    { name: "Богдан Анц", bounty: 1200 },
+    { name: "Семён Ануфриев", bounty: 1200 },
+    { name: "Вова Гриненко", bounty: 900 },
+    { name: "Свидетель", bounty: 900 },
     { name: "Жан Балацкий", bounty: 600 },
     { name: "Иван Чемодан", bounty: 600 },
     { name: "Олег Сми", bounty: 600 },
+    { name: "Egrinderolls", bounty: 600 },
     { name: "Саша Тяжелов", bounty: 600 },
     { name: "Ксюша Петрушина", bounty: 600 },
     { name: "Дмитрий Ник", bounty: 600 },
     { name: "Андрей Ф", bounty: 600 },
     { name: "Ладали", bounty: 600 },
+    { name: "Даша Гри", bounty: 600 },
     { name: "Искандер", bounty: 600 },
+    { name: "Надя Жб", bounty: 600 },
     { name: "Константин Сидорин", bounty: 600 },
-    { name: "Том", bounty: 600 },
-    { name: "Богдан Анц", bounty: 450 },
-    { name: "Михаил Козадой", bounty: 300 },
-    { name: "Вова Гриненко", bounty: 300 },
+    { name: "Славяна", bounty: 600 },
+    { name: "Андрей Джип", bounty: 600 },
+    { name: "Вася Е", bounty: 600 },
     { name: "Иван Антипов", bounty: 300 },
-    { name: "Egrinderolls", bounty: 300 },
-    { name: "Асхат Суханбердин", bounty: 150 },
-    { name: "Василий АБВ", bounty: 75 },
-    { name: "Макар Аве", bounty: 75 }
+    { name: "Асхат Суханбердин", bounty: 300 },
+    { name: "Саша Коч", bounty: 300 },
+    { name: "Даня КДД", bounty: 300 }
 ];
-
-// Данные для вкладки Результаты турнира
-const tournamentResultsPlayers = [
-    { number: 1, name: "Богдан Анц", medals: "🥇" },
-    { number: 2, name: "Семён Ануфриев", medals: "🥈" },
-    { number: 3, name: "Андрей Джип", medals: "🥉" },
-    { number: 4, name: "Иван Антипов", medals: "4️⃣" },
-    { number: 5, name: "Даша Yellow", medals: "" },
-    { number: 6, name: "Михаил Козадой", medals: "" },
-    { number: 7, name: "Сергей Ман", medals: "" },
-    { number: 8, name: "Вова Баж", medals: "" },
-    { number: 9, name: "Даша Гри", medals: "" },
-    { number: 10, name: "Вася Е", medals: "" },
-    { number: 11, name: "Миша Скиф", medals: "" },
-    { number: 12, name: "Шурик Шилкин", medals: "" },
-    { number: 13, name: "Родион Шашурин", medals: "" },
-    { number: 14, name: "Даня КДД", medals: "" },
-    { number: 15, name: "Макар Аве", medals: "" },
-    { number: 16, name: "Даниил Ершов", medals: "" },
-    { number: 17, name: "Саша Тяжелов", medals: "" },
-    { number: 18, name: "Том", medals: "" },
-    { number: 19, name: "Дмитрий Ник", medals: "" },
-    { number: 20, name: "Влад Сам", medals: "" },
-    { number: 21, name: "Иван Баж", medals: "" },
-    { number: 22, name: "Саша Коч", medals: "" },
-    { number: 23, name: "Василий Б", medals: "" },
-    { number: 24, name: "Ксюша Лис", medals: "" },
-    { number: 25, name: "Василий АБВ", medals: "" },
-    { number: 26, name: "Инна М", medals: "" },
-    { number: 27, name: "Славяна", medals: "" },
-    { number: 28, name: "Никита Yellow", medals: "" },
-    { number: 29, name: "Даниил Глухов", medals: "" },
-    { number: 30, name: "Всеволод Кузнецов", medals: "" },
-    { number: 31, name: "Оксана Б", medals: "" },
-    { number: 32, name: "Надя Жб", medals: "" },
-    { number: 33, name: "Анна К", medals: "" },
-    { number: 34, name: "Макс Ник", medals: "" },
-    { number: 35, name: "Диана Зак", medals: "" },
-    { number: 36, name: "Асхат Суханбердин", medals: "" },
-    { number: 37, name: "Серафима Онежко", medals: "" },
-    { number: 38, name: "Полина Матыцына", medals: "" },
-    { number: 39, name: "Саша Б", medals: "" },
-    { number: 40, name: "Александр Будда", medals: "" },
-    { number: 41, name: "Серж", medals: "" },
-    { number: 42, name: "Кристина Дым", medals: "" },
-    { number: 43, name: "Александр Исаев", medals: "" },
-    { number: 44, name: "Иван John", medals: "" },
-    { number: 45, name: "Вова Гриненко", medals: "" },
-    { number: 46, name: "Egrinderolls", medals: "" },
-    { number: 47, name: "Петя Федоров", medals: "" },
-    { number: 48, name: "Свидетель", medals: "" },
-    { number: 49, name: "Егор Полесов", medals: "" },
-    { number: 50, name: "Даня Гол", medals: "" },
-    { number: 51, name: "Никита Эфа", medals: "" },
-    { number: 52, name: "Федор К", medals: "" },
-    { number: 53, name: "Сергей Логинов", medals: "" },
-    { number: 54, name: "Евгений Ц", medals: "" },
-    { number: 55, name: "Дима БДР", medals: "" },
-    { number: 56, name: "Олег Гвед", medals: "" }
-];
-
-// Данные участия в финале, Т2 и охоты за головами
-const playerBonuses = {
-    "Сергей Ман": { finalParticipation: 2000, t2: 3000, bounty: 1425 },
-    "Даня КДД": { finalParticipation: 2000, t2: 0, bounty: 0 },
-    "Родион Шашурин": { finalParticipation: 2000, t2: 0, bounty: 0 },
-    "Богдан Анц": { finalParticipation: 2000, t2: 3000, bounty: 450 },
-    "Шурик Шилкин": { finalParticipation: 2000, t2: 3000, bounty: 600 },
-    "Том": { finalParticipation: 2000, t2: 0, bounty: 0 },
-    "Вася Е": { finalParticipation: 2000, t2: 3000, bounty: 0 },
-    "Михаил Козадой": { finalParticipation: 2000, t2: 0, bounty: 0 },
-    "Даша Гри": { finalParticipation: 2000, t2: 0, bounty: 0 },
-    "Иван Антипов": { finalParticipation: 2000, t2: 3000, bounty: 300 },
-    "Макар Аве": { finalParticipation: 2000, t2: 3000, bounty: 75 },
-    "Саша Коч": { finalParticipation: 2000, t2: 3000, bounty: 750 },
-    "Василий АБВ": { finalParticipation: 2000, t2: 0, bounty: 0 },
-    "Семён Ануфриев": { finalParticipation: 2000, t2: 0, bounty: 0 },
-    "Даша Yellow": { finalParticipation: 2000, t2: 0, bounty: 0 },
-    "Инна М": { finalParticipation: 2000, t2: 3000, bounty: 0 },
-    "Славяна": { finalParticipation: 2000, t2: 0, bounty: 0 },
-    "Никита Yellow": { finalParticipation: 2000, t2: 0, bounty: 0 },
-    "Саша Тяжелов": { finalParticipation: 2000, t2: 0, bounty: 0 },
-    "Даниил Глухов": { finalParticipation: 2000, t2: 0, bounty: 0 },
-    "Всеволод Кузнецов": { finalParticipation: 2000, t2: 0, bounty: 0 },
-    "Оксана Б": { finalParticipation: 2000, t2: 0, bounty: 0 },
-    "Надя Жб": { finalParticipation: 2000, t2: 3000, bounty: 900 },
-    "Даниил Ершов": { finalParticipation: 2000, t2: 0, bounty: 0 },
-    "Анна К": { finalParticipation: 2000, t2: 0, bounty: 0 },
-    "Макс Ник": { finalParticipation: 2000, t2: 0, bounty: 0 },
-    "Диана Зак": { finalParticipation: 2000, t2: 0, bounty: 0 },
-    "Асхат Суханбердин": { finalParticipation: 2000, t2: 0, bounty: 0 },
-    "Серафима Онежко": { finalParticipation: 2000, t2: 0, bounty: 0 },
-    "Полина Матыцына": { finalParticipation: 2000, t2: 0, bounty: 0 },
-    "Саша Б": { finalParticipation: 2000, t2: 0, bounty: 0 },
-    "Александр Будда": { finalParticipation: 2000, t2: 0, bounty: 0 },
-    "Серж": { finalParticipation: 2000, t2: 0, bounty: 0 },
-    "Кристина Дым": { finalParticipation: 2000, t2: 0, bounty: 0 },
-    "Влад Сам": { finalParticipation: 2000, t2: 0, bounty: 0 },
-    "Александр Исаев": { finalParticipation: 2000, t2: 0, bounty: 0 },
-    "Иван John": { finalParticipation: 2000, t2: 0, bounty: 0 },
-    "Вова Гриненко": { finalParticipation: 2000, t2: 0, bounty: 0 },
-    "Egrinderolls": { finalParticipation: 2000, t2: 0, bounty: 0 },
-    "Петя Федоров": { finalParticipation: 2000, t2: 0, bounty: 0 },
-    "Вова Баж": { finalParticipation: 2000, t2: 0, bounty: 0 },
-    "Свидетель": { finalParticipation: 2000, t2: 0, bounty: 0 },
-    "Егор Полесов": { finalParticipation: 2000, t2: 0, bounty: 0 },
-    "Даня Гол": { finalParticipation: 2000, t2: 0, bounty: 0 },
-    "Никита Эфа": { finalParticipation: 2000, t2: 0, bounty: 0 },
-    "Федор К": { finalParticipation: 2000, t2: 0, bounty: 0 },
-    "Сергей Логинов": { finalParticipation: 2000, t2: 0, bounty: 0 },
-    "Евгений Ц": { finalParticipation: 2000, t2: 0, bounty: 0 },
-    "Дима БДР": { finalParticipation: 2000, t2: 0, bounty: 0 },
-    "Олег Гвед": { finalParticipation: 2000, t2: 0, bounty: 0 }
-};
 
 // Функция переключения вкладок
 function showTab(tabName) {
@@ -295,17 +117,15 @@ function showMainInterface(tabName) {
     // Обновляем заголовок фазы турнира
     const phaseElement = document.getElementById('currentPhase');
     if (tabName === 'day1') {
-        phaseElement.textContent = 'День 1 - 23.10.2025';
+        phaseElement.textContent = 'День 1 - 13.11.2025';
     } else if (tabName === 'day2') {
-        phaseElement.textContent = 'День 2 - 30.10.2025';
+        phaseElement.textContent = 'День 2 - 20.11.2025';
     } else if (tabName === 'day3') {
-        phaseElement.textContent = 'День 3 - 6.11.2025';
+        phaseElement.textContent = 'День 3 - 27.11.2025';
     } else if (tabName === 'final') {
-        phaseElement.textContent = 'Финал - 8.11.2025';
+        phaseElement.textContent = 'Финал - 29.11.2025';
     } else if (tabName === 'bounties') {
         phaseElement.textContent = 'Охота за головами';
-    } else if (tabName === 'tournamentResults') {
-        phaseElement.textContent = 'Результаты турнира'; // Убрали дату
     }
 }
 
@@ -389,35 +209,17 @@ function calculateAverageStack() {
     
     if (activeTab === 'day1') {
         players = day1Players;
-    } else if (activeTab === 'day2') {
-        players = day2Players;
-    } else if (activeTab === 'day3') {
-        players = day3Players;
-    } else if (activeTab === 'bounties' || activeTab === 'final2025' || activeTab === 'satellite2025' || activeTab === 'tournamentResults') {
-        return 0; // Для специальных вкладок не считаем средний стек
     } else if (activeTab === 'final') {
-        // Для финала считаем среднее от полного итога (с бонусами)
-        const finalPlayers = getAllFinalPlayers();
-        const finalPlayersWithBonuses = finalPlayers.map(player => {
-            const bonusData = getPlayerBonusData(player.name);
-            const total = (player.day1 + player.day2 + player.day3) + 
-                         (bonusData.finalParticipation || 0) + 
-                         (bonusData.t2 || 0) + 
-                         (bonusData.bounty || 0);
-            return { total };
-        });
-        
-        const positiveResults = finalPlayersWithBonuses.filter(player => player.total > 0);
+        // Для финала считаем среднее от итогов Дня 1
+        const positiveResults = day1Players.filter(player => player.result > 0);
         if (positiveResults.length === 0) return 0;
-        const totalSum = positiveResults.reduce((sum, player) => sum + player.total, 0);
-        return Math.round(totalSum / positiveResults.length);
-    } else {
-        // Для остальных вкладок (если есть)
-        players = getAllFinalPlayers();
-        const positiveResults = players.filter(player => (player.day1 + player.day2 + player.day3) > 0);
-        if (positiveResults.length === 0) return 0;
-        const total = positiveResults.reduce((sum, player) => sum + (player.day1 + player.day2 + player.day3), 0);
+        const total = positiveResults.reduce((sum, player) => sum + Number(player.result), 0);
         return Math.round(total / positiveResults.length);
+    } else if (activeTab === 'bounties' || activeTab === 'final2025' || activeTab === 'satellite2025') {
+        return 0; // Для специальных вкладок не считаем средний стек
+    } else {
+        // Для остальных вкладок пока возвращаем 0
+        return 0;
     }
     
     // Для дней считаем только положительные результаты
@@ -427,173 +229,19 @@ function calculateAverageStack() {
     return Math.round(total / positiveResults.length);
 }
 
-// Получение всех игроков для финала (объединение дней)
+// Получение всех игроков для финала (пока только День 1)
 function getAllFinalPlayers() {
-    const allPlayersMap = new Map();
-    
-    // Добавляем игроков из дня 1
-    day1Players.forEach(player => {
-        allPlayersMap.set(player.name, {
-            name: player.name,
-            day1: player.result,
-            day2: 0,
-            day3: 0
-        });
-    });
-    
-    // Обновляем/добавляем игроков из дня 2
-    day2Players.forEach(player => {
-        if (allPlayersMap.has(player.name)) {
-            allPlayersMap.get(player.name).day2 = player.result;
-        } else {
-            allPlayersMap.set(player.name, {
-                name: player.name,
-                day1: 0,
-                day2: player.result,
-                day3: 0
-            });
-        }
-    });
-    
-    // Обновляем/добавляем игроков из дня 3
-    day3Players.forEach(player => {
-        if (allPlayersMap.has(player.name)) {
-            allPlayersMap.get(player.name).day3 = player.result;
-        } else {
-            allPlayersMap.set(player.name, {
-                name: player.name,
-                day1: 0,
-                day2: 0,
-                day3: player.result
-            });
-        }
-    });
-    
-    return Array.from(allPlayersMap.values());
-}
-
-// Получение всех игроков до третьего дня (День 1 + День 2)
-function getAllPlayersBeforeDay3() {
-    const allPlayersMap = new Map();
-    
-    // Добавляем игроков из дня 1
-    day1Players.forEach(player => {
-        allPlayersMap.set(player.name, {
-            name: player.name,
-            day1: player.result,
-            day2: 0,
-            day3: 0
-        });
-    });
-    
-    // Обновляем/добавляем игроков из дня 2
-    day2Players.forEach(player => {
-        if (allPlayersMap.has(player.name)) {
-            allPlayersMap.get(player.name).day2 = player.result;
-        } else {
-            allPlayersMap.set(player.name, {
-                name: player.name,
-                day1: 0,
-                day2: player.result,
-                day3: 0
-            });
-        }
-    });
-    
-    return Array.from(allPlayersMap.values());
-}
-
-// Расчет изменений позиций для Финала (относительно итогов Дня 1+День 2)
-function calculateFinalPositionChanges() {
-    const changes = new Map();
-    
-    // Создаем карту позиций из итогов Дня 1+День 2
-    const previousPositions = new Map();
-    
-    // Получаем игроков для Дня 1+День 2 (до третьего дня)
-    const playersBeforeDay3 = getAllPlayersBeforeDay3();
-    
-    // Сортируем по убыванию итогов Дня 1+День 2
-    playersBeforeDay3.sort((a, b) => (b.day1 + b.day2) - (a.day1 + a.day2));
-    
-    // Сохраняем позиции до третьего дня
-    playersBeforeDay3.forEach((player, index) => {
-        previousPositions.set(player.name, index + 1);
-    });
-    
-    // Получаем финальных игроков (после третьего дня)
-    const finalPlayers = getAllFinalPlayers();
-    finalPlayers.sort((a, b) => (b.day1 + b.day2 + b.day3) - (a.day1 + a.day2 + a.day3));
-    
-    // Рассчитываем изменения для финальных игроков
-    finalPlayers.forEach((player, newPosition) => {
-        const oldPosition = previousPositions.get(player.name);
-        
-        if (oldPosition) {
-            // Игрок был до третьего дня - считаем изменение позиции
-            const change = oldPosition - (newPosition + 1);
-            changes.set(player.name, {
-                change: Math.abs(change),
-                type: change > 0 ? 'up' : change < 0 ? 'down' : 'same'
-            });
-        } else {
-            // Новый игрок (впервые в третьем дне)
-            changes.set(player.name, {
-                change: null,
-                type: 'new'
-            });
-        }
-    });
-    
-    return changes;
+    return day1Players.map(player => ({
+        name: player.name,
+        day1: player.result,
+        day2: 0,
+        day3: 0
+    }));
 }
 
 // Форматирование чисел с разделителями
 function formatNumber(num) {
     return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-}
-
-// Создание HTML для стрелки изменения позиции
-function createPositionChangeHTML(changeData) {
-    if (!changeData) return '';
-    
-    const { change, type } = changeData;
-    
-    let html = '';
-    let arrow = '';
-    let text = '';
-    
-    switch (type) {
-        case 'up':
-            arrow = '↑';
-            text = `+${change}`;
-            break;
-        case 'down':
-            arrow = '↓';
-            text = `-${change}`;
-            break;
-        case 'same':
-            arrow = '→';
-            text = '0';
-            break;
-        case 'new':
-            arrow = '';
-            text = 'NEW';
-            break;
-    }
-    
-    if (type === 'new') {
-        return `<div class="position-change position-${type}">${text}</div>`;
-    } else {
-        return `<div class="position-change position-${type}">
-            <span class="change-arrow">${arrow}</span>${text}
-        </div>`;
-    }
-}
-
-// Функция для получения бонусных данных игрока
-function getPlayerBonusData(playerName) {
-    return playerBonuses[playerName] || { finalParticipation: 0, t2: 0, bounty: 0 };
 }
 
 // Заполнение таблицы Дня 1
@@ -622,105 +270,35 @@ function fillDay1Table() {
     });
 }
 
-// Заполнение таблицы Дня 2
-function fillDay2Table() {
-    const tableBody = document.getElementById('day2Table');
-    tableBody.innerHTML = '';
-    
-    day2Players.forEach((player) => {
-        const row = document.createElement('tr');
-        
-        const exitClass = player.exit !== 0 ? "exit-time" : "exit-zero";
-        const exitDisplay = player.exit !== 0 ? formatNumber(player.exit) : "-";
-        const resultClass = player.result >= 0 ? "chips-positive" : "chips-negative";
-        
-        row.innerHTML = `
-            <td class="number-column">${player.number}</td>
-            <td class="player-name">${player.name}</td>
-            <td>${formatNumber(player.participation)}</td>
-            <td>${formatNumber(player.start)}</td>
-            <td>${formatNumber(player.rebuy)}</td>
-            <td class="${exitClass}">${exitDisplay}</td>
-            <td class="${resultClass}">${formatNumber(player.result)}</td>
-        `;
-        
-        tableBody.appendChild(row);
-    });
-}
-
-// Заполнение таблицы Дня 3
-function fillDay3Table() {
-    const tableBody = document.getElementById('day3Table');
-    tableBody.innerHTML = '';
-    
-    day3Players.forEach((player) => {
-        const row = document.createElement('tr');
-        
-        const exitClass = player.exit !== 0 ? "exit-time" : "exit-zero";
-        const exitDisplay = player.exit !== 0 ? formatNumber(player.exit) : "-";
-        const resultClass = player.result >= 0 ? "chips-positive" : "chips-negative";
-        
-        row.innerHTML = `
-            <td class="number-column">${player.number}</td>
-            <td class="player-name">${player.name}</td>
-            <td>${formatNumber(player.participation)}</td>
-            <td>${formatNumber(player.start)}</td>
-            <td>${formatNumber(player.rebuy)}</td>
-            <td class="${exitClass}">${exitDisplay}</td>
-            <td class="${resultClass}">${formatNumber(player.result)}</td>
-        `;
-        
-        tableBody.appendChild(row);
-    });
-}
-
 // Заполнение таблицы Финала
 function fillFinalTable() {
     const tableBody = document.getElementById('finalTable');
     tableBody.innerHTML = '';
     
-    // Получаем всех игроков для финала
+    // Получаем всех игроков для финала (пока только День 1)
     const finalPlayers = getAllFinalPlayers();
-    const positionChanges = calculateFinalPositionChanges();
     
-    // Добавляем данные участия в финале, Т2 и охоты за головами
-    const finalPlayersWithBonuses = finalPlayers.map(player => {
-        const bonusData = getPlayerBonusData(player.name);
-        return {
-            ...player,
-            finalParticipation: bonusData.finalParticipation,
-            t2: bonusData.t2,
-            bounty: bonusData.bounty
-        };
-    });
-    
-    // Сортируем по убыванию общего итога
-    finalPlayersWithBonuses.sort((a, b) => {
-        const totalA = (a.day1 + a.day2 + a.day3) + (a.finalParticipation || 0) + (a.t2 || 0) + (a.bounty || 0);
-        const totalB = (b.day1 + b.day2 + b.day3) + (b.finalParticipation || 0) + (b.t2 || 0) + (b.bounty || 0);
-        return totalB - totalA;
-    });
+    // Сортируем по убыванию итогов Дня 1
+    finalPlayers.sort((a, b) => b.day1 - a.day1);
     
     // Присваиваем новые номера для финала
-    finalPlayersWithBonuses.forEach((player, index) => {
+    finalPlayers.forEach((player, index) => {
         const row = document.createElement('tr');
         const qualifyingTotal = player.day1 + player.day2 + player.day3;
-        const finalTotal = qualifyingTotal + (player.finalParticipation || 0) + (player.t2 || 0) + (player.bounty || 0);
-        const changeData = positionChanges.get(player.name);
-        const totalClass = finalTotal >= 0 ? "final-total positive" : "final-total negative";
+        const totalClass = qualifyingTotal >= 0 ? "final-total positive" : "final-total negative";
         
         row.innerHTML = `
             <td class="number-column">${index + 1}</td>
             <td class="player-name">${player.name}</td>
-            <td>${createPositionChangeHTML(changeData)}</td>
+            <td></td> <!-- Изменение (пока пусто) -->
             <td class="result-column">${formatNumber(player.day1)}</td>
             <td class="result-column">${formatNumber(player.day2)}</td>
             <td class="result-column">${formatNumber(player.day3)}</td>
             <td class="result-column">${formatNumber(qualifyingTotal)}</td>
-            <td class="chips-positive">${player.finalParticipation ? formatNumber(player.finalParticipation) : '-'}</td>
-            <td class="chips-positive">${player.t2 ? formatNumber(player.t2) : '-'}</td>
-            <td class="chips-positive">${player.bounty ? formatNumber(player.bounty) : '-'}</td>
-            <td class="${totalClass}">${formatNumber(finalTotal)}</td>
+            <td class="chips-positive">-</td> <!-- Участие в финале -->
+            <td class="chips-positive">-</td> <!-- Т2 -->
+            <td class="chips-positive">-</td> <!-- Охота за головами -->
+            <td class="${totalClass}">${formatNumber(qualifyingTotal)}</td>
         `;
         
         tableBody.appendChild(row);
@@ -747,30 +325,7 @@ function fillBountiesTable() {
     });
 }
 
-// Заполнение таблицы Результатов турнира
-function fillTournamentResultsTable() {
-    const tableBody = document.getElementById('tournamentResultsTable');
-    tableBody.innerHTML = '';
-    
-    tournamentResultsPlayers.forEach((player, index) => {
-        const row = document.createElement('tr');
-        
-        // Добавляем класс для первых 24 игроков
-        if (index < 24) {
-            row.classList.add('top-player');
-        }
-        
-        row.innerHTML = `
-            <td class="number-column">${player.number}</td>
-            <td class="player-name">${player.name}</td>
-            <td class="medals-column">${player.medals}</td>
-        `;
-        
-        tableBody.appendChild(row);
-    });
-}
-
-// Функции для заполнения таблиц с поиском (сохраняют оригинальную нумерацию)
+// Функции для заполнения таблиц с поиском
 
 function fillDay1TableWithSearch(foundPlayers, searchTerm) {
     const tableBody = document.getElementById('playersTable');
@@ -802,100 +357,17 @@ function fillDay1TableWithSearch(foundPlayers, searchTerm) {
     });
 }
 
-function fillDay2TableWithSearch(foundPlayers, searchTerm) {
-    const tableBody = document.getElementById('day2Table');
-    tableBody.innerHTML = '';
-    
-    foundPlayers.forEach((player) => {
-        const row = document.createElement('tr');
-        row.className = 'search-highlight';
-        
-        const exitClass = player.exit !== 0 ? "exit-time" : "exit-zero";
-        const exitDisplay = player.exit !== 0 ? formatNumber(player.exit) : "-";
-        const resultClass = player.result >= 0 ? "chips-positive" : "chips-negative";
-        
-        const highlightedName = highlightText(player.name, searchTerm);
-        
-        row.innerHTML = `
-            <td class="number-column">${player.number}</td>
-            <td class="player-name">${highlightedName}</td>
-            <td>${formatNumber(player.participation)}</td>
-            <td>${formatNumber(player.start)}</td>
-            <td>${formatNumber(player.rebuy)}</td>
-            <td class="${exitClass}">${exitDisplay}</td>
-            <td class="${resultClass}">${formatNumber(player.result)}</td>
-        `;
-        
-        tableBody.appendChild(row);
-    });
-}
-
-function fillDay3TableWithSearch(foundPlayers, searchTerm) {
-    const tableBody = document.getElementById('day3Table');
-    tableBody.innerHTML = '';
-    
-    if (foundPlayers.length === 0) {
-        tableBody.innerHTML = `
-            <tr>
-                <td colspan="7" style="text-align: center; padding: 40px; color: #666;">
-                    Игроки не найдены
-                </td>
-            </tr>
-        `;
-        return;
-    }
-    
-    foundPlayers.forEach((player) => {
-        const row = document.createElement('tr');
-        row.className = 'search-highlight';
-        
-        const exitClass = player.exit !== 0 ? "exit-time" : "exit-zero";
-        const exitDisplay = player.exit !== 0 ? formatNumber(player.exit) : "-";
-        const resultClass = player.result >= 0 ? "chips-positive" : "chips-negative";
-        
-        const highlightedName = highlightText(player.name, searchTerm);
-        
-        row.innerHTML = `
-            <td class="number-column">${player.number}</td>
-            <td class="player-name">${highlightedName}</td>
-            <td>${formatNumber(player.participation)}</td>
-            <td>${formatNumber(player.start)}</td>
-            <td>${formatNumber(player.rebuy)}</td>
-            <td class="${exitClass}">${exitDisplay}</td>
-            <td class="${resultClass}">${formatNumber(player.result)}</td>
-        `;
-        
-        tableBody.appendChild(row);
-    });
-}
-
 function fillFinalTableWithSearch(foundPlayers, searchTerm) {
     const tableBody = document.getElementById('finalTable');
     tableBody.innerHTML = '';
     
     const allFinalPlayers = getAllFinalPlayers();
-    const positionChanges = calculateFinalPositionChanges();
-    
-    // Добавляем бонусы к игрокам
-    const finalPlayersWithBonuses = allFinalPlayers.map(player => {
-        const bonusData = getPlayerBonusData(player.name);
-        return {
-            ...player,
-            finalParticipation: bonusData.finalParticipation,
-            t2: bonusData.t2,
-            bounty: bonusData.bounty
-        };
-    });
     
     // Сортируем как в оригинальной таблице
-    finalPlayersWithBonuses.sort((a, b) => {
-        const totalA = (a.day1 + a.day2 + a.day3) + (a.finalParticipation || 0) + (a.t2 || 0) + (a.bounty || 0);
-        const totalB = (b.day1 + b.day2 + b.day3) + (b.finalParticipation || 0) + (b.t2 || 0) + (b.bounty || 0);
-        return totalB - totalA;
-    });
+    allFinalPlayers.sort((a, b) => b.day1 - a.day1);
     
     // Показываем только найденных игроков с их позициями в финале
-    const filteredPlayers = finalPlayersWithBonuses.filter(player => 
+    const filteredPlayers = allFinalPlayers.filter(player => 
         foundPlayers.some(found => found.name === player.name)
     );
     
@@ -915,26 +387,24 @@ function fillFinalTableWithSearch(foundPlayers, searchTerm) {
         row.className = 'search-highlight';
         
         const qualifyingTotal = player.day1 + player.day2 + player.day3;
-        const finalTotal = qualifyingTotal + (player.finalParticipation || 0) + (player.t2 || 0) + (player.bounty || 0);
-        const changeData = positionChanges.get(player.name);
-        const totalClass = finalTotal >= 0 ? "final-total positive" : "final-total negative";
+        const totalClass = qualifyingTotal >= 0 ? "final-total positive" : "final-total negative";
         
         // Находим оригинальную позицию игрока в финале
-        const originalPosition = finalPlayersWithBonuses.findIndex(p => p.name === player.name) + 1;
+        const originalPosition = allFinalPlayers.findIndex(p => p.name === player.name) + 1;
         const highlightedName = highlightText(player.name, searchTerm);
         
         row.innerHTML = `
             <td class="number-column">${originalPosition}</td>
             <td class="player-name">${highlightedName}</td>
-            <td>${createPositionChangeHTML(changeData)}</td>
+            <td></td> <!-- Изменение (пока пусто) -->
             <td class="result-column">${formatNumber(player.day1)}</td>
             <td class="result-column">${formatNumber(player.day2)}</td>
             <td class="result-column">${formatNumber(player.day3)}</td>
             <td class="result-column">${formatNumber(qualifyingTotal)}</td>
-            <td class="chips-positive">${player.finalParticipation ? formatNumber(player.finalParticipation) : '-'}</td>
-            <td class="chips-positive">${player.t2 ? formatNumber(player.t2) : '-'}</td>
-            <td class="chips-positive">${player.bounty ? formatNumber(player.bounty) : '-'}</td>
-            <td class="${totalClass}">${formatNumber(finalTotal)}</td>
+            <td class="chips-positive">-</td>
+            <td class="chips-positive">-</td>
+            <td class="chips-positive">-</td>
+            <td class="${totalClass}">${formatNumber(qualifyingTotal)}</td>
         `;
         
         tableBody.appendChild(row);
@@ -977,46 +447,6 @@ function fillBountiesTableWithSearch(foundPlayers, searchTerm) {
     });
 }
 
-function fillTournamentResultsTableWithSearch(foundPlayers, searchTerm) {
-    const tableBody = document.getElementById('tournamentResultsTable');
-    tableBody.innerHTML = '';
-    
-    const filteredPlayers = tournamentResultsPlayers.filter(player => 
-        player.name.toLowerCase().includes(searchTerm)
-    );
-    
-    if (filteredPlayers.length === 0) {
-        tableBody.innerHTML = `
-            <tr>
-                <td colspan="3" style="text-align: center; padding: 40px; color: #666;">
-                    Игроки не найдены
-                </td>
-            </tr>
-        `;
-        return;
-    }
-    
-    filteredPlayers.forEach((player, index) => {
-        const row = document.createElement('tr');
-        row.className = 'search-highlight';
-        
-        // Добавляем класс для первых 24 игроков (в оригинальной нумерации)
-        if (player.number <= 24) {
-            row.classList.add('top-player');
-        }
-        
-        const highlightedName = highlightText(player.name, searchTerm);
-        
-        row.innerHTML = `
-            <td class="number-column">${player.number}</td>
-            <td class="player-name">${highlightedName}</td>
-            <td class="medals-column">${player.medals}</td>
-        `;
-        
-        tableBody.appendChild(row);
-    });
-}
-
 // Функция для подсветки найденного текста
 function highlightText(text, searchTerm) {
     if (!searchTerm) return text;
@@ -1031,10 +461,10 @@ function setupAutocomplete() {
     const autocompleteResults = document.getElementById('autocompleteResults');
     
     // Получаем все уникальные имена игроков
-    const allPlayers = [...day1Players, ...day2Players, ...day3Players, ...bountyPlayers.map(p => ({ name: p.name }))];
+    const allPlayers = [...day1Players, ...bountyPlayers.map(p => ({ name: p.name }))];
     const playerNames = [...new Set(allPlayers.map(p => p.name))];
     
-    // Добавляем игроков из специальных вкладок и результатов турнира
+    // Добавляем игроков из специальных вкладок
     const final2025Players = [
         "Александр Гиг", "Мария Павлова", "Даша Yellow", "Михаил Козадой", 
         "Вадим Константинов", "Руф", "Влад Пив", "Артур Король", 
@@ -1049,9 +479,7 @@ function setupAutocomplete() {
         "Даня КДД", "Надя Жб", "Константин Сидорин", "Славяна", "Андрей Джип"
     ];
     
-    const tournamentResultsNames = tournamentResultsPlayers.map(p => p.name);
-    
-    playerNames.push(...final2025Players, ...satellitePlayers, ...tournamentResultsNames);
+    playerNames.push(...final2025Players, ...satellitePlayers);
     const uniquePlayerNames = [...new Set(playerNames)];
     
     searchInput.addEventListener('input', function() {
@@ -1141,16 +569,10 @@ function searchPlayers() {
         // Если поиск пустой, показываем все данные
         if (activeTab === 'day1') {
             fillDay1Table();
-        } else if (activeTab === 'day2') {
-            fillDay2Table();
-        } else if (activeTab === 'day3') {
-            fillDay3Table();
         } else if (activeTab === 'final') {
             fillFinalTable();
         } else if (activeTab === 'bounties') {
             fillBountiesTable();
-        } else if (activeTab === 'tournamentResults') {
-            fillTournamentResultsTable();
         }
         document.getElementById('searchResults').style.display = 'none';
         return;
@@ -1164,16 +586,6 @@ function searchPlayers() {
             player.name.toLowerCase().includes(searchTerm)
         );
         fillDay1TableWithSearch(foundPlayers, searchTerm);
-    } else if (activeTab === 'day2') {
-        foundPlayers = day2Players.filter(player => 
-            player.name.toLowerCase().includes(searchTerm)
-        );
-        fillDay2TableWithSearch(foundPlayers, searchTerm);
-    } else if (activeTab === 'day3') {
-        foundPlayers = day3Players.filter(player => 
-            player.name.toLowerCase().includes(searchTerm)
-        );
-        fillDay3TableWithSearch(foundPlayers, searchTerm);
     } else if (activeTab === 'final') {
         const allFinalPlayers = getAllFinalPlayers();
         foundPlayers = allFinalPlayers.filter(player => 
@@ -1185,11 +597,6 @@ function searchPlayers() {
             player.name.toLowerCase().includes(searchTerm)
         );
         fillBountiesTableWithSearch(foundPlayers, searchTerm);
-    } else if (activeTab === 'tournamentResults') {
-        foundPlayers = tournamentResultsPlayers.filter(player => 
-            player.name.toLowerCase().includes(searchTerm)
-        );
-        fillTournamentResultsTableWithSearch(foundPlayers, searchTerm);
     }
     
     // Показываем результаты поиска
@@ -1206,9 +613,10 @@ function searchPlayers() {
 }
 
 // Функция для обновления дат в статистике
-function updateDates(nextGame) {
+function updateDates(nextGame, finalDate) {
     const dateItems = document.querySelectorAll('.date-value');
     if (dateItems[0]) dateItems[0].innerHTML = nextGame;
+    if (dateItems[1]) dateItems[1].textContent = finalDate;
 }
 
 // Обновление статистики при переключении вкладок
@@ -1226,38 +634,22 @@ function updateStats() {
         animateCounter(totalPlayersElement, totalPlayers);
         animateCounter(averageStackElement, averageStack);
         
-        // Обновляем даты для Дня 1
-        updateDates('13.11.2025');
-    } else if (activeTab === 'day2') {
-        totalPlayers = day2Players.length;
+        // Обновляем даты
+        updateDates('20.11.2025', '29.11.2025');
+    } else if (activeTab === 'final') {
+        totalPlayers = day1Players.length;
         averageStack = calculateAverageStack();
         animateCounter(totalPlayersElement, totalPlayers);
         animateCounter(averageStackElement, averageStack);
         
-        // Обновляем даты для Дня 2
-        updateDates('13.11.2025');
-    } else if (activeTab === 'day3') {
-        totalPlayers = day3Players.length;
-        averageStack = calculateAverageStack();
-        animateCounter(totalPlayersElement, totalPlayers);
-        animateCounter(averageStackElement, averageStack);
-        
-        // Обновляем даты для Дня 3
-        updateDates('13.11.2025');
+        updateDates('20.11.2025', '29.11.2025');
     } else if (activeTab === 'bounties') {
         totalPlayers = bountyPlayers.length;
         averageStack = 0;
         animateCounter(totalPlayersElement, totalPlayers);
         animateCounter(averageStackElement, averageStack);
         
-        updateDates('13.11.2025');
-    } else if (activeTab === 'tournamentResults') {
-        totalPlayers = tournamentResultsPlayers.length;
-        averageStack = 0; // Не считаем средний стек для результатов турнира
-        animateCounter(totalPlayersElement, totalPlayers);
-        animateCounter(averageStackElement, averageStack);
-        
-        updateDates('13.11.2025');
+        updateDates('20.11.2025', '29.11.2025');
     } else if (activeTab === 'final2025') {
         totalPlayers = 13; // 13 участников в финале финалистов
         animateCounter(specialTotalPlayersElement, totalPlayers);
@@ -1265,30 +657,27 @@ function updateStats() {
         totalPlayers = 20; // 20 участников в сателлите
         animateCounter(specialTotalPlayersElement, totalPlayers);
     } else {
-        const finalPlayers = getAllFinalPlayers();
-        totalPlayers = finalPlayers.length;
-        averageStack = calculateAverageStack();
+        // Для остальных вкладок показываем 0
+        totalPlayers = 0;
+        averageStack = 0;
         animateCounter(totalPlayersElement, totalPlayers);
         animateCounter(averageStackElement, averageStack);
         
-        updateDates('13.11.2025');
+        updateDates('20.11.2025', '29.11.2025');
     }
 }
 
 // Запуск при загрузке страницы
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('🚀 Турнир Дойля Брансона загружен!');
+    console.log('🚀 Турнир Тощего Джека J-2 загружен!');
     
     fillDay1Table();
-    fillDay2Table();
-    fillDay3Table();
     fillFinalTable();
     fillBountiesTable();
-    fillTournamentResultsTable();
     setupAutocomplete();
     
-    // Показываем вкладку Результаты турнира при загрузке
-    showTab('tournamentResults');
+    // Показываем вкладку День 1 при загрузке
+    showTab('day1');
     
     document.getElementById('searchInput').addEventListener('input', searchPlayers);
     
@@ -1306,4 +695,3 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('autocompleteResults').style.display = 'none';
     });
 });
-
