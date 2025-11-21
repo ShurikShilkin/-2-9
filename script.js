@@ -29,8 +29,41 @@ const day1Players = [
     { number: 27, name: "Инна М", participation: 3100, start: 2100, rebuy: 2000, exit: 0, result: -1000 }
 ];
 
-// Данные для охоты за головами
+// Данные игроков для Дня 2
+const day2Players = [
+    { number: 1, name: "Александр Будда", participation: 3100, start: 2100, rebuy: 0, exit: 27840, result: 28840 },
+    { number: 2, name: "Иван Антипов", participation: 3100, start: 2100, rebuy: 0, exit: 8055, result: 9055 },
+    { number: 3, name: "Вова Гриненко", participation: 3100, start: 2100, rebuy: 0, exit: 7935, result: 8935 },
+    { number: 4, name: "Сергей Ман", participation: 3100, start: 2100, rebuy: 0, exit: 6365, result: 7365 },
+    { number: 5, name: "Макар Аве", participation: 3100, start: 2100, rebuy: 0, exit: 5925, result: 6925 },
+    { number: 6, name: "Саша Коч", participation: 3100, start: 2100, rebuy: 0, exit: 5545, result: 6545 },
+    { number: 7, name: "Саша Бел", participation: 3100, start: 2100, rebuy: 0, exit: 5335, result: 6335 },
+    { number: 8, name: "Шурик Шилкин", participation: 3100, start: 2100, rebuy: 0, exit: 5000, result: 6000 },
+    { number: 9, name: "Даша Хромова", participation: 3100, start: 2100, rebuy: 0, exit: 2415, result: 3415 },
+    { number: 10, name: "Саша Тяжелов", participation: 3100, start: 2100, rebuy: 0, exit: 2275, result: 3275 },
+    { number: 11, name: "Вася Е", participation: 3100, start: 2100, rebuy: 0, exit: 1930, result: 2930 },
+    { number: 12, name: "Богдан Анц", participation: 3100, start: 2100, rebuy: 2000, exit: 3665, result: 2665 },
+    { number: 13, name: "Инна М", participation: 3100, start: 2100, rebuy: 0, exit: 1625, result: 2625 },
+    { number: 14, name: "Владимир Vladecbeer", participation: 3100, start: 2100, rebuy: 2000, exit: 3565, result: 2565 },
+    { number: 15, name: "Евгений Ц", participation: 3100, start: 2100, rebuy: 0, exit: 1215, result: 2215 },
+    { number: 16, name: "Федор К", participation: 3100, start: 2100, rebuy: 2000, exit: 2210, result: 1210 },
+    { number: 17, name: "Никита Зейн", participation: 3100, start: 2100, rebuy: 0, exit: 0, result: 1000 },
+    { number: 18, name: "Асхат Суханбердин", participation: 3100, start: 2100, rebuy: 2000, exit: 0, result: -1000 },
+    { number: 19, name: "Оксана Б", participation: 3100, start: 2100, rebuy: 2000, exit: 0, result: -1000 },
+    { number: 20, name: "Даша Гри", participation: 3100, start: 2100, rebuy: 2000, exit: 0, result: -1000 },
+    { number: 21, name: "Свидетель", participation: 3100, start: 2100, rebuy: 2000, exit: 0, result: -1000 },
+    { number: 22, name: "Славяна", participation: 3100, start: 2100, rebuy: 2000, exit: 0, result: -1000 },
+    { number: 23, name: "Egrinderolls", participation: 3100, start: 2100, rebuy: 2000, exit: 0, result: -1000 },
+    { number: 24, name: "Михаил Наб", participation: 3100, start: 2100, rebuy: 2000, exit: 0, result: -1000 },
+    { number: 25, name: "Роман Егоров", participation: 3100, start: 2100, rebuy: 2000, exit: 0, result: -1000 },
+    { number: 26, name: "Том", participation: 3100, start: 2100, rebuy: 2000, exit: 0, result: -1000 },
+    { number: 27, name: "Максим Spy", participation: 3100, start: 2100, rebuy: 2000, exit: 0, result: -1000 }
+];
+
+// Обновленные данные для Охоты за головами
 const bountyPlayers = [
+    { name: "Александр Будда", bounty: 1950 },
+    { name: "Шурик Шилкин", bounty: 1650 },
     { name: "Александр Гиг", bounty: 1200 },
     { name: "Мария Павлова", bounty: 1200 },
     { name: "Даша Yellow", bounty: 1200 },
@@ -39,33 +72,33 @@ const bountyPlayers = [
     { name: "Руф", bounty: 1200 },
     { name: "Влад Пив", bounty: 1200 },
     { name: "Артур Король", bounty: 1200 },
-    { name: "Шурик Шилкин", bounty: 1200 },
     { name: "Даня Гол", bounty: 1200 },
     { name: "Никита Yellow", bounty: 1200 },
-    { name: "Богдан Анц", bounty: 1200 },
     { name: "Семён Ануфриев", bounty: 1200 },
-    { name: "Вова Гриненко", bounty: 900 },
-    { name: "Свидетель", bounty: 900 },
+    { name: "Вова Гриненко", bounty: 1200 },
+    { name: "Богдан Анц", bounty: 900 },
     { name: "Жан Балацкий", bounty: 600 },
     { name: "Иван Чемодан", bounty: 600 },
     { name: "Олег Сми", bounty: 600 },
-    { name: "Egrinderolls", bounty: 600 },
     { name: "Саша Тяжелов", bounty: 600 },
     { name: "Ксюша Петрушина", bounty: 600 },
     { name: "Дмитрий Ник", bounty: 600 },
     { name: "Андрей Ф", bounty: 600 },
     { name: "Ладали", bounty: 600 },
-    { name: "Даша Гри", bounty: 600 },
     { name: "Искандер", bounty: 600 },
     { name: "Надя Жб", bounty: 600 },
     { name: "Константин Сидорин", bounty: 600 },
-    { name: "Славяна", bounty: 600 },
     { name: "Андрей Джип", bounty: 600 },
     { name: "Вася Е", bounty: 600 },
+    { name: "Свидетель", bounty: 450 },
+    { name: "Egrinderolls", bounty: 300 },
+    { name: "Даша Гри", bounty: 300 },
+    { name: "Славяна", bounty: 300 },
     { name: "Иван Антипов", bounty: 300 },
-    { name: "Асхат Суханбердин", bounty: 300 },
     { name: "Саша Коч", bounty: 300 },
-    { name: "Даня КДД", bounty: 300 }
+    { name: "Даня КДД", bounty: 300 },
+    { name: "Никита Зейн", bounty: 300 },
+    { name: "Асхат Суханбердин", bounty: 150 }
 ];
 
 // Функция переключения вкладок
@@ -209,11 +242,14 @@ function calculateAverageStack() {
     
     if (activeTab === 'day1') {
         players = day1Players;
+    } else if (activeTab === 'day2') {
+        players = day2Players;
     } else if (activeTab === 'final') {
-        // Для финала считаем среднее от итогов Дня 1
-        const positiveResults = day1Players.filter(player => player.result > 0);
+        // Для финала считаем среднее от полного итога
+        const finalPlayers = getAllFinalPlayers();
+        const positiveResults = finalPlayers.filter(player => (player.day1 + player.day2 + player.day3) > 0);
         if (positiveResults.length === 0) return 0;
-        const total = positiveResults.reduce((sum, player) => sum + Number(player.result), 0);
+        const total = positiveResults.reduce((sum, player) => sum + (player.day1 + player.day2 + player.day3), 0);
         return Math.round(total / positiveResults.length);
     } else if (activeTab === 'bounties' || activeTab === 'final2025' || activeTab === 'satellite2025') {
         return 0; // Для специальных вкладок не считаем средний стек
@@ -229,8 +265,39 @@ function calculateAverageStack() {
     return Math.round(total / positiveResults.length);
 }
 
-// Получение всех игроков для финала (пока только День 1)
+// Получение всех игроков для финала (объединение дней)
 function getAllFinalPlayers() {
+    const allPlayersMap = new Map();
+    
+    // Добавляем игроков из дня 1
+    day1Players.forEach(player => {
+        allPlayersMap.set(player.name, {
+            name: player.name,
+            day1: player.result,
+            day2: 0,
+            day3: 0
+        });
+    });
+    
+    // Обновляем/добавляем игроков из дня 2
+    day2Players.forEach(player => {
+        if (allPlayersMap.has(player.name)) {
+            allPlayersMap.get(player.name).day2 = player.result;
+        } else {
+            allPlayersMap.set(player.name, {
+                name: player.name,
+                day1: 0,
+                day2: player.result,
+                day3: 0
+            });
+        }
+    });
+    
+    return Array.from(allPlayersMap.values());
+}
+
+// Получение всех игроков до второго дня (только День 1)
+function getAllPlayersBeforeDay2() {
     return day1Players.map(player => ({
         name: player.name,
         day1: player.result,
@@ -239,9 +306,92 @@ function getAllFinalPlayers() {
     }));
 }
 
+// Расчет изменений позиций для Финала (относительно итогов Дня 1)
+function calculateFinalPositionChanges() {
+    const changes = new Map();
+    
+    // Создаем карту позиций из итогов Дня 1
+    const previousPositions = new Map();
+    
+    // Получаем игроков для Дня 1
+    const playersBeforeDay2 = getAllPlayersBeforeDay2();
+    
+    // Сортируем по убыванию итогов Дня 1
+    playersBeforeDay2.sort((a, b) => b.day1 - a.day1);
+    
+    // Сохраняем позиции до второго дня
+    playersBeforeDay2.forEach((player, index) => {
+        previousPositions.set(player.name, index + 1);
+    });
+    
+    // Получаем финальных игроков (после второго дня)
+    const finalPlayers = getAllFinalPlayers();
+    finalPlayers.sort((a, b) => (b.day1 + b.day2 + b.day3) - (a.day1 + a.day2 + a.day3));
+    
+    // Рассчитываем изменения для финальных игроков
+    finalPlayers.forEach((player, newPosition) => {
+        const oldPosition = previousPositions.get(player.name);
+        
+        if (oldPosition) {
+            // Игрок был до второго дня - считаем изменение позиции
+            const change = oldPosition - (newPosition + 1);
+            changes.set(player.name, {
+                change: Math.abs(change),
+                type: change > 0 ? 'up' : change < 0 ? 'down' : 'same'
+            });
+        } else {
+            // Новый игрок (впервые во втором дне)
+            changes.set(player.name, {
+                change: null,
+                type: 'new'
+            });
+        }
+    });
+    
+    return changes;
+}
+
 // Форматирование чисел с разделителями
 function formatNumber(num) {
     return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
+// Создание HTML для стрелки изменения позиции
+function createPositionChangeHTML(changeData) {
+    if (!changeData) return '';
+    
+    const { change, type } = changeData;
+    
+    let html = '';
+    let arrow = '';
+    let text = '';
+    
+    switch (type) {
+        case 'up':
+            arrow = '↑';
+            text = `+${change}`;
+            break;
+        case 'down':
+            arrow = '↓';
+            text = `-${change}`;
+            break;
+        case 'same':
+            arrow = '→';
+            text = '0';
+            break;
+        case 'new':
+            arrow = '';
+            text = 'NEW';
+            break;
+    }
+    
+    if (type === 'new') {
+        return `<div class="position-change position-${type}">${text}</div>`;
+    } else {
+        return `<div class="position-change position-${type}">
+            <span class="change-arrow">${arrow}</span>${text}
+        </div>`;
+    }
 }
 
 // Заполнение таблицы Дня 1
@@ -270,34 +420,66 @@ function fillDay1Table() {
     });
 }
 
+// Заполнение таблицы Дня 2
+function fillDay2Table() {
+    const tableBody = document.getElementById('day2Table');
+    tableBody.innerHTML = '';
+    
+    day2Players.forEach((player) => {
+        const row = document.createElement('tr');
+        
+        const exitClass = player.exit !== 0 ? "exit-time" : "exit-zero";
+        const exitDisplay = player.exit !== 0 ? formatNumber(player.exit) : "-";
+        const resultClass = player.result >= 0 ? "chips-positive" : "chips-negative";
+        
+        row.innerHTML = `
+            <td class="number-column">${player.number}</td>
+            <td class="player-name">${player.name}</td>
+            <td>${formatNumber(player.participation)}</td>
+            <td>${formatNumber(player.start)}</td>
+            <td>${formatNumber(player.rebuy)}</td>
+            <td class="${exitClass}">${exitDisplay}</td>
+            <td class="${resultClass}">${formatNumber(player.result)}</td>
+        `;
+        
+        tableBody.appendChild(row);
+    });
+}
+
 // Заполнение таблицы Финала
 function fillFinalTable() {
     const tableBody = document.getElementById('finalTable');
     tableBody.innerHTML = '';
     
-    // Получаем всех игроков для финала (пока только День 1)
+    // Получаем всех игроков для финала
     const finalPlayers = getAllFinalPlayers();
+    const positionChanges = calculateFinalPositionChanges();
     
-    // Сортируем по убыванию итогов Дня 1
-    finalPlayers.sort((a, b) => b.day1 - a.day1);
+    // Сортируем по убыванию общего итога
+    finalPlayers.sort((a, b) => {
+        const totalA = a.day1 + a.day2 + a.day3;
+        const totalB = b.day1 + b.day2 + b.day3;
+        return totalB - totalA;
+    });
     
     // Присваиваем новые номера для финала
     finalPlayers.forEach((player, index) => {
         const row = document.createElement('tr');
         const qualifyingTotal = player.day1 + player.day2 + player.day3;
         const totalClass = qualifyingTotal >= 0 ? "final-total positive" : "final-total negative";
+        const changeData = positionChanges.get(player.name);
         
         row.innerHTML = `
             <td class="number-column">${index + 1}</td>
             <td class="player-name">${player.name}</td>
-            <td></td> <!-- Изменение (пока пусто) -->
+            <td>${createPositionChangeHTML(changeData)}</td>
             <td class="result-column">${formatNumber(player.day1)}</td>
             <td class="result-column">${formatNumber(player.day2)}</td>
             <td class="result-column">${formatNumber(player.day3)}</td>
             <td class="result-column">${formatNumber(qualifyingTotal)}</td>
-            <td class="chips-positive">-</td> <!-- Участие в финале -->
-            <td class="chips-positive">-</td> <!-- Т2 -->
-            <td class="chips-positive">-</td> <!-- Охота за головами -->
+            <td class="chips-positive">-</td>
+            <td class="chips-positive">-</td>
+            <td class="chips-positive">-</td>
             <td class="${totalClass}">${formatNumber(qualifyingTotal)}</td>
         `;
         
@@ -331,7 +513,6 @@ function fillDay1TableWithSearch(foundPlayers, searchTerm) {
     const tableBody = document.getElementById('playersTable');
     tableBody.innerHTML = '';
     
-    // Показываем только найденных игроков, но с их оригинальными номерами
     foundPlayers.forEach((player) => {
         const row = document.createElement('tr');
         row.className = 'search-highlight';
@@ -340,7 +521,34 @@ function fillDay1TableWithSearch(foundPlayers, searchTerm) {
         const exitDisplay = player.exit !== 0 ? formatNumber(player.exit) : "-";
         const resultClass = player.result >= 0 ? "chips-positive" : "chips-negative";
         
-        // Подсвечиваем найденный текст в имени
+        const highlightedName = highlightText(player.name, searchTerm);
+        
+        row.innerHTML = `
+            <td class="number-column">${player.number}</td>
+            <td class="player-name">${highlightedName}</td>
+            <td>${formatNumber(player.participation)}</td>
+            <td>${formatNumber(player.start)}</td>
+            <td>${formatNumber(player.rebuy)}</td>
+            <td class="${exitClass}">${exitDisplay}</td>
+            <td class="${resultClass}">${formatNumber(player.result)}</td>
+        `;
+        
+        tableBody.appendChild(row);
+    });
+}
+
+function fillDay2TableWithSearch(foundPlayers, searchTerm) {
+    const tableBody = document.getElementById('day2Table');
+    tableBody.innerHTML = '';
+    
+    foundPlayers.forEach((player) => {
+        const row = document.createElement('tr');
+        row.className = 'search-highlight';
+        
+        const exitClass = player.exit !== 0 ? "exit-time" : "exit-zero";
+        const exitDisplay = player.exit !== 0 ? formatNumber(player.exit) : "-";
+        const resultClass = player.result >= 0 ? "chips-positive" : "chips-negative";
+        
         const highlightedName = highlightText(player.name, searchTerm);
         
         row.innerHTML = `
@@ -362,9 +570,10 @@ function fillFinalTableWithSearch(foundPlayers, searchTerm) {
     tableBody.innerHTML = '';
     
     const allFinalPlayers = getAllFinalPlayers();
+    const positionChanges = calculateFinalPositionChanges();
     
     // Сортируем как в оригинальной таблице
-    allFinalPlayers.sort((a, b) => b.day1 - a.day1);
+    allFinalPlayers.sort((a, b) => (b.day1 + b.day2 + b.day3) - (a.day1 + a.day2 + a.day3));
     
     // Показываем только найденных игроков с их позициями в финале
     const filteredPlayers = allFinalPlayers.filter(player => 
@@ -388,6 +597,7 @@ function fillFinalTableWithSearch(foundPlayers, searchTerm) {
         
         const qualifyingTotal = player.day1 + player.day2 + player.day3;
         const totalClass = qualifyingTotal >= 0 ? "final-total positive" : "final-total negative";
+        const changeData = positionChanges.get(player.name);
         
         // Находим оригинальную позицию игрока в финале
         const originalPosition = allFinalPlayers.findIndex(p => p.name === player.name) + 1;
@@ -396,7 +606,7 @@ function fillFinalTableWithSearch(foundPlayers, searchTerm) {
         row.innerHTML = `
             <td class="number-column">${originalPosition}</td>
             <td class="player-name">${highlightedName}</td>
-            <td></td> <!-- Изменение (пока пусто) -->
+            <td>${createPositionChangeHTML(changeData)}</td>
             <td class="result-column">${formatNumber(player.day1)}</td>
             <td class="result-column">${formatNumber(player.day2)}</td>
             <td class="result-column">${formatNumber(player.day3)}</td>
@@ -461,7 +671,7 @@ function setupAutocomplete() {
     const autocompleteResults = document.getElementById('autocompleteResults');
     
     // Получаем все уникальные имена игроков
-    const allPlayers = [...day1Players, ...bountyPlayers.map(p => ({ name: p.name }))];
+    const allPlayers = [...day1Players, ...day2Players, ...bountyPlayers.map(p => ({ name: p.name }))];
     const playerNames = [...new Set(allPlayers.map(p => p.name))];
     
     // Добавляем игроков из специальных вкладок
@@ -569,6 +779,8 @@ function searchPlayers() {
         // Если поиск пустой, показываем все данные
         if (activeTab === 'day1') {
             fillDay1Table();
+        } else if (activeTab === 'day2') {
+            fillDay2Table();
         } else if (activeTab === 'final') {
             fillFinalTable();
         } else if (activeTab === 'bounties') {
@@ -586,6 +798,11 @@ function searchPlayers() {
             player.name.toLowerCase().includes(searchTerm)
         );
         fillDay1TableWithSearch(foundPlayers, searchTerm);
+    } else if (activeTab === 'day2') {
+        foundPlayers = day2Players.filter(player => 
+            player.name.toLowerCase().includes(searchTerm)
+        );
+        fillDay2TableWithSearch(foundPlayers, searchTerm);
     } else if (activeTab === 'final') {
         const allFinalPlayers = getAllFinalPlayers();
         foundPlayers = allFinalPlayers.filter(player => 
@@ -635,21 +852,30 @@ function updateStats() {
         animateCounter(averageStackElement, averageStack);
         
         // Обновляем даты
-        updateDates('20.11.2025', '29.11.2025');
-    } else if (activeTab === 'final') {
-        totalPlayers = day1Players.length;
+        updateDates('27.11.2025', '29.11.2025');
+    } else if (activeTab === 'day2') {
+        totalPlayers = day2Players.length;
         averageStack = calculateAverageStack();
         animateCounter(totalPlayersElement, totalPlayers);
         animateCounter(averageStackElement, averageStack);
         
-        updateDates('20.11.2025', '29.11.2025');
+        // Обновляем даты
+        updateDates('27.11.2025', '29.11.2025');
+    } else if (activeTab === 'final') {
+        const finalPlayers = getAllFinalPlayers();
+        totalPlayers = finalPlayers.length;
+        averageStack = calculateAverageStack();
+        animateCounter(totalPlayersElement, totalPlayers);
+        animateCounter(averageStackElement, averageStack);
+        
+        updateDates('27.11.2025', '29.11.2025');
     } else if (activeTab === 'bounties') {
         totalPlayers = bountyPlayers.length;
         averageStack = 0;
         animateCounter(totalPlayersElement, totalPlayers);
         animateCounter(averageStackElement, averageStack);
         
-        updateDates('20.11.2025', '29.11.2025');
+        updateDates('27.11.2025', '29.11.2025');
     } else if (activeTab === 'final2025') {
         totalPlayers = 13; // 13 участников в финале финалистов
         animateCounter(specialTotalPlayersElement, totalPlayers);
@@ -663,7 +889,7 @@ function updateStats() {
         animateCounter(totalPlayersElement, totalPlayers);
         animateCounter(averageStackElement, averageStack);
         
-        updateDates('20.11.2025', '29.11.2025');
+        updateDates('27.11.2025', '29.11.2025');
     }
 }
 
@@ -672,12 +898,13 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('🚀 Турнир Тощего Джека J-2 загружен!');
     
     fillDay1Table();
+    fillDay2Table();
     fillFinalTable();
     fillBountiesTable();
     setupAutocomplete();
     
-    // Показываем вкладку День 1 при загрузке
-    showTab('day1');
+    // Показываем вкладку День 2 при загрузке
+    showTab('day2');
     
     document.getElementById('searchInput').addEventListener('input', searchPlayers);
     
