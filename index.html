@@ -15,14 +15,14 @@
                 <button class="special-tab right" onclick="showTab('satellite2025')">САТЕЛЛИТ 2025</button>
             </div>
             <div class="tournament-info">
-                <div class="tournament-phase" id="currentPhase">День 1 - 13.11.2025</div>
+                <div class="tournament-phase" id="currentPhase">День 2 - 20.11.2025</div>
             </div>
         </header>
 
         <!-- Основные вкладки -->
         <div class="tabs" id="mainTabs">
-            <button class="tab-button active" onclick="showTab('day1')">День 1 - 13.11.2025</button>
-            <button class="tab-button" onclick="showTab('day2')">День 2 - 20.11.2025</button>
+            <button class="tab-button" onclick="showTab('day1')">День 1 - 13.11.2025</button>
+            <button class="tab-button active" onclick="showTab('day2')">День 2 - 20.11.2025</button>
             <button class="tab-button" onclick="showTab('day3')">День 3 - 27.11.2025</button>
             <button class="tab-button" onclick="showTab('final')">Финал - 29.11.2025</button>
             <button class="tab-button" onclick="showTab('bounties')">Охота за головами</button>
@@ -31,7 +31,7 @@
         <!-- Специальная вкладка для ФИНАЛ ФИНАЛИСТОВ и САТЕЛЛИТ -->
         <div class="tabs" id="specialTabs" style="display: none;">
             <button class="tab-button active" id="specialTabButton">ФИНАЛ ФИНАЛИСТОВ 2025</button>
-            <button class="tab-button back-button" onclick="showTab('day1')">← Назад к турниру</button>
+            <button class="tab-button back-button" onclick="showTab('day2')">← Назад к турниру</button>
         </div>
 
         <!-- Статистика для основных вкладок -->
@@ -44,7 +44,7 @@
                 <div class="stat-dates">
                     <div class="date-item">
                         <div class="date-label">Следующая игра</div>
-                        <div class="date-value">20.11.2025</div>
+                        <div class="date-value">27.11.2025</div>
                     </div>
                     <div class="date-item">
                         <div class="date-label">Финал</div>
@@ -82,7 +82,7 @@
         <button class="expand-button" onclick="toggleTableExpand()">Развернуть таблицу</button>
 
         <!-- Вкладка День 1 -->
-        <div id="day1" class="tab-content active">
+        <div id="day1" class="tab-content">
             <table class="tournament-table">
                 <thead>
                     <tr>
@@ -102,7 +102,7 @@
         </div>
 
         <!-- Вкладка День 2 -->
-        <div id="day2" class="tab-content">
+        <div id="day2" class="tab-content active">
             <table class="tournament-table">
                 <thead>
                     <tr>
@@ -154,7 +154,7 @@
                         <th>День 3</th>
                         <th>Отборочные дни</th>
                         <th>Участие в финале</th>
-                        <th>Т2</th>
+                        <th>Оголодавшие</th>
                         <th>Охота за головами</th>
                         <th>ИТОГ</th>
                     </tr>
